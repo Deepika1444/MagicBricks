@@ -36,3 +36,126 @@
     transform: rotate(360deg);
   }
 }
+ .navColor{
+  background-color: rgb(218, 17, 17);
+  
+   
+
+ }
+.rounded-white-bg {
+  background-color: white;
+  border-radius: 30px; /* Standard border radius for slight rounding */
+  border: 1px solid #ccc; /* Optional: light gray border */
+  padding:  3px 3px; /* Slightly larger padding for better visual spacing */
+  color:black; /* Dark text color for contrast */
+  margin-right: 10px;
+  text-size-adjust: 10px;
+}
+
+.text-link-decoration {
+  text-decoration: none; /* Remove underline from link text if needed */
+}
+
+
+
+
+
+.footer {
+  background-color:lightgrey;
+  color: black;
+  text-align: left;
+  padding: 20px 0;
+  margin-top:10px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10%;
+}
+
+.footer-section {
+  margin: 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section a {
+  color: black;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+
+.read-more-less-button{
+  cursor: pointer;
+}
+.bg-body-tertiary{
+  /* margin: 0; */
+  padding: 0;
+}
+.horizantal{
+  padding: 0;
+  margin: 0;
+}
+ .nav_bold{
+  font-weight: bold;
+  color:gray;
+  font-style: italic;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+ }
+ .nav_bold::after{
+  content: '';
+  width:0;
+  height: 3px;
+  background: #ff004f;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+ }
+ .nav_bold:hover::after{
+  width: 100%;
+ }
+.searchRoundeed{
+  border-radius: 50px;
+}
+.OnIcon{
+  display: inline;
+  color: #ff004f;
+}
+.borderless-input{
+  border: none !important; /* Remove border */
+  outline: none !important;
+}
+.searchicon{
+  display: inline;
+}
+.media-card {
+  width: 100%;
+  /* Add additional styling as necessary */
+}
+.cardColor{
+  background-color:antiquewhite;
+}
+ .cardPerform:hover{
+  box-shadow: 3px 2px 10px grey;
+  cursor: pointer;
+  transform: scale(1.01);
+  
+ }
+.card-action.hover{
+  transform: scale(1.05);
+
+}
+ 
+ 
+ 
