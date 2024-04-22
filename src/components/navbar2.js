@@ -6,7 +6,8 @@ import  Badge from 'react-bootstrap/Badge';
 
  const Navigation2=()=> {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary"  >
+    <>
+    <Navbar expand="lg" className=" navbaar2 bg-body-tertiary" fixed="top"   >
       <Container  >
         {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav"> */}
@@ -75,8 +76,12 @@ import  Badge from 'react-bootstrap/Badge';
               </NavDropdown>
 
 
-              <NavDropdown  className='text-white mx-3 '   title="MB Advice" id="basic-nav-dropdown">
-          <Badge bg="warning" text="dark">New</Badge>
+              <NavDropdown  className='text-white mx-3 '   title={
+              <span>
+                MB Advice <Badge bg="warning" text="dark" style={{borderRadius:'40px'}}>New</Badge>
+              </span>
+            } id="basic-nav-dropdown" style={{display:'flex'}}>
+          {/* <Badge bg="warning" text="dark">New</Badge> */}
 
               <NavDropdown.Item href="#action/3.1"> INDIA</NavDropdown.Item> 
               <NavDropdown.Item href="#action/3.2"> 
@@ -110,7 +115,8 @@ import  Badge from 'react-bootstrap/Badge';
         {/* </Navbar.Collapse> */}
       </Container>
     </Navbar>
-    
+    <hr></hr>
+    </>
   );
 }
 

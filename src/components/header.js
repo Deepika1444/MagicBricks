@@ -30,13 +30,13 @@ let Header=()=>{
             <Navbar.Text href="#home" className='nav_bold text-dark ms-4'>Post Free Property Ad</Navbar.Text>
             </Container>
 
-            <div className=" searchRoundeed border  p-3 mt-3" style={{width:'60%', marginLeft:'250px',height:'100px'}}>
+            <div className=" searchRoundeed border  p-3 mt-4" style={{width:'60%', marginLeft:'250px',height:'80px'}}>
       <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
+        <Container style={{marginBottom:'10px'}}>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Form className="d-flex flex-grow-1 justify-content-center align-items-center">
-            <InputGroup className="mb-3">
+            <Form className="d-flex flex-grow-1   align-items-center" >
+            <InputGroup className="mt-1" style={{width:'50%'}}>
       <InputGroup.Text id="basic-addon1"><LocationOnIcon className="OnIcon"/></InputGroup.Text>
       <FormControl
       style={{fontSize:'25px'}}
@@ -48,6 +48,9 @@ let Header=()=>{
         onChange={handleInputChange}
       />
     </InputGroup>
+
+ 
+
     {/* <h1>|</h1> */}
 
 
@@ -111,7 +114,13 @@ let Header=()=>{
             </Dropdown.Menu>
               </Dropdown>
               {/* <Form.Control type="text" placeholder="Search" className="me-1" id="form-control " style={{width:'150px'}} /> */}
-              <Button variant="danger"> <SearchIcon className="OnIcon"/>Search</Button>
+              {/* <Button variant="danger"> <SearchIcon className="OnIcon"/>Search</Button>
+               */}
+       <Button variant="danger" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',height:'60px', width:'140px',borderRadius:'40px' }}>
+  <SearchIcon style={{ marginRight: '5px' }} /> <span style={{fontWeight:'bold',fontSize:'22px'}}>Search</span>
+</Button>
+
+
             </Form>
           </Navbar.Collapse>
         </Container>

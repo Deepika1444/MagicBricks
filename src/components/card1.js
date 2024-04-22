@@ -33,9 +33,7 @@ import { Container, Row,Col } from 'react-bootstrap';
     </Col>
     <Col>
     <Card   className='cardPerform' style={{backgroundColor:'antiquewhite' }}sx={{ minWidth: 220,minHeight:160} }>
-      <CardContent >
-      
-       
+      <CardContent > 
         <Typography variant="p" style={{fontSize:'20px'}}>
           Get persnolaized Property
           recommendation from us

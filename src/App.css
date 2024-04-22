@@ -125,6 +125,21 @@
  .nav_bold:hover::after{
   width: 100%;
  }
+ .navbaaar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+ }
+ .navbaar2{
+  position: fixed;
+  top: 50px; /* adjust this value to be the height of the first navbar */
+  width: 100%;
+  z-index: 1030;
+  margin-bottom: 50px;
+  
+
+ }
 .searchRoundeed{
   border-radius: 50px;
 }
@@ -153,9 +168,119 @@
   
  }
 .card-action.hover{
-  transform: scale(1.05);
+  transform: scale(1.04);
 
 }
  
+ /* //prfragnt.js */
  
+
+
+
+
+
+
+
+
+
+
+
+
+ .TextColor{
+  font-size: 13px;
+  color: blue;
+} 
+.Bgclr{
+  color:black;
+  background-color: rgb(179, 227, 246);
+  border-radius: 10px;
+ 
+}
+.Bgclr2{
+  background-color: ffff;
+}
+.TextColor2{  
+  color: black;  
+    font-weight: bold;
+  font-size: 12px;
+}
+.MainCard{
+  border-radius: 10px;
+  height: 250px;
+}
+.MainCard:hover{
+  box-shadow: 3px 5px 2px lightslategray;
+  cursor: pointer;
+}
+ 
+.Center_card{
+  border: 2px solid white;
+  border-radius: 100px;
+  width: 300px;
+  height: 100px;
+  background-color: aqua;
+  margin-left: 30px;
+}
+.containerCenter{
+  font-size: 17px;
+  margin-left: 50px;
+  
+}
+
+
+
+
+/* Properrtyservices */
+.CardHover:hover {
+  cursor: pointer;
+  box-shadow: 2px 3px 3px gray;
+transform: scale(1.01);
+}
+.nav_boldB{
+  /* font-weight: bold; */
+  /* color:gray; */
+  /* font-style: italic; */
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+.nav_boldB::after{
+  content: '';
+  width:0;
+  height: 5px;
+  /* background: #ff004f;
+   */
+   background: yellow;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+
+}
+.nav_boldB::after{
+  width: 30%;
+}
+
+ 
+ /* adice&tools */
+.AdviceHover:hover{
+  box-shadow: 2px 3px 3px gray;
+  cursor: pointer;
+  transform: scale(1.00);
+}
+
+
+
+
+/* footer */
+
+.footmrgin{
+  margin-right: 20px;
+}
+
+
+.footmrgin2{
+  margin-right: 50px;
+}
+
  

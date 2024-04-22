@@ -13,7 +13,7 @@ const ReadMoreLess = ({ children, maxLength }) => {
             <p>
                 {showMore ? children : `${children.substring(0, maxLength)}...`}
             </p>
-            <  p onClick={toggleShowMore} className="read-more-less-button">
+            <  p onClick={toggleShowMore} className="read-more-less-button" style={{color:'red',fontWeight:'bold',marginTop:'0px',padding:'0'}}>
                 {showMore ? 'Read Less' : 'Read More'}
             </p>
         </div>
