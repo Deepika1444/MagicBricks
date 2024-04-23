@@ -8,6 +8,9 @@ import PropertyServices from "../components/prpertyServices";
 import AdviceTools from "../components/Advice&tools";
 import Estateguide from "../components/estateGuide";
 import FreshProperty from "../components/freshProperties";
+import Snapshot from "../components/snapshot";
+import Footer from "../components/foot";
+import Postproperty from "../components/postproperty";
 // import { Container, Row, Col } from "react-bootstrap";
 
 const Home = () => {
@@ -25,12 +28,13 @@ const Home = () => {
       <OutlinedCard/>
       <SimpleContainer/>
       <PropertyServices/>
-      <AdviceTools/>
-      {/* <MultiActionAreaCard/>
-       */}
+     
        <FreshProperty/>
-
+      <AdviceTools/>
       <Estateguide/>
+      <Snapshot/>
+      <Postproperty/>
+      <Footer/>
  
     </>
   );

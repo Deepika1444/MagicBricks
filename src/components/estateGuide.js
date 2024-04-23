@@ -17,7 +17,7 @@ function Estateguide() {
       </p>
       <Row>
         <Col>
-          <Card className="AdviceHover" style={{ width: '21rem',height:'23rem', marginTop: '20px',borderRadius:'15px',borderTopColor:'red' }}>  
+          <Card className="AdviceHover" style={{ width: '21rem',height:'23rem', marginTop: '20px',borderRadius:'15px',borderTopColor:'red'}}>  
             <Card.Body>
               <Card.Title>Video Showcase</Card.Title>
               <Carousel>

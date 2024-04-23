@@ -39,9 +39,9 @@
  .navColor{
   background-color: rgb(218, 17, 17);
   
-   
 
  }
+ 
 .rounded-white-bg {
   background-color: white;
   border-radius: 30px; /* Standard border radius for slight rounding */
@@ -52,6 +52,20 @@
   text-size-adjust: 10px;
 }
 
+.custom-dropdown .dropdown-toggle {
+  color: white !important; /* Ensures the text is white */
+}
+
+.custom-dropdown .dropdown-toggle::after {
+  border-top-color: white !important; /* Changes the arrow color to white */
+}
+
+.custom-arrow .dropdown-toggle::after {
+  border-top-color: red !important; /* Changes the arrow color to red */
+}
+
+
+
 .text-link-decoration {
   text-decoration: none; /* Remove underline from link text if needed */
 }
@@ -61,7 +75,7 @@
 
 
 .footer {
-  background-color:lightgrey;
+  background-color:WhiteSmoke;
   color: black;
   text-align: left;
   padding: 20px 0;
