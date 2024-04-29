@@ -2,29 +2,47 @@
 import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Badge, Button, Card,Row ,Col } from 'react-bootstrap';
 import CheckIcon from '@mui/icons-material/Check';
-
+import { Link } from 'react-router-dom';
 function CombinedNavigation() {
-    const [showDropdown, setShowDropdown] = useState(false);
-    const [isHoveringMbPrime, setIsHoveringMbPrime] = useState(false);
-    const [isHoveringLogin, setIsHoveringLogin] = useState(false);
-    const [isHoveringBuy, setIsHoveringBuy] = useState(false);
-    const [isHoveringRent, setIsHoveringRent] = useState(false);
-    const [isHoveringSell, setIsHoveringSell] = useState(false);
-    const [isHoveringHomeLoan, setIsHoveringHomeLoan] = useState(false);
-    const [isHoveringPropertyServices, setIsHoveringPropertyServices] = useState(false);
-    const [isHoveringMbAdvice, setIsHoveringMbAdvice] = useState(false);
-    const [isHoveringHelp, setIsHoveringHelp] = useState(false);
+    // const [showDropdown, setShowDropdown] = useState(false);
+    // const [isHoveringMbPrime, setIsHoveringMbPrime] = useState(false);
+    // const [isHoveringLogin, setIsHoveringLogin] = useState(false);
+    // const [isHoveringBuy, setIsHoveringBuy] = useState(false);
+    // const [isHoveringRent, setIsHoveringRent] = useState(false);
+    // const [isHoveringSell, setIsHoveringSell] = useState(false);
+    // const [isHoveringHomeLoan, setIsHoveringHomeLoan] = useState(false);
+    // const [isHoveringPropertyServices, setIsHoveringPropertyServices] = useState(false);
+    // const [isHoveringMbAdvice, setIsHoveringMbAdvice] = useState(false);
+    // const [isHoveringHelp, setIsHoveringHelp] = useState(false);
 
 
- 
-    const handleMouseEnter = () => {
-        setShowDropdown(true);
-    };
+    const [hoverStates, setHoverStates] = useState({
+      mbPrime: false,
+      login: false,
+      buy: false,
+      Bangalore:false,
+      Buy:false,
+      RENT:false,
+      SELL:false,
+      HOMELOANS:false,
+      PropertyServices:false,
+      MBAdvice:false,
+      Help:false
 
-    const handleMouseLeave = () => {
-        setShowDropdown(false);
-    };
 
+      // Add other states
+  });
+  
+const handleMouseEnter = (dropdown) => {
+  setHoverStates(prev => ({ ...prev, [dropdown]: true }));
+};
+
+const handleMouseLeave = (dropdown) => {
+  setHoverStates(prev => ({ ...prev, [dropdown]: false }));
+};
+
+
+  
     const cities = [
       
         'INDIA', 'Nearby Cities', 'Bangalore - East', 'Bangalore - South',
@@ -46,13 +64,13 @@ function CombinedNavigation() {
                                 title="Bangalore"
                                 id="basic-nav-dropdown"  
                                 className="custom-dropdown text-white"
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                                show={showDropdown}
+                                show={hoverStates.Bangalore}
+onMouseEnter={() => handleMouseEnter('Bangalore')}
+onMouseLeave={() => handleMouseLeave('Bangalore')}
                             >
                                 {cities.map((city, index) => (
                                     <NavDropdown.Item key={index} href={`#action/${index}`} >
-                                      <container > {city}</container>
+                                      <div> {city}</div>
                                     
                                     </NavDropdown.Item>
                                 ))}
@@ -62,9 +80,10 @@ function CombinedNavigation() {
              <NavDropdown
                title="MB Prime" id="basic-nav-dropdown"  
                 className="custom-dropdown text-white"
-                show={isHoveringMbPrime}
-onMouseEnter={() => setIsHoveringMbPrime(true)}
-onMouseLeave={() => setIsHoveringMbPrime(false)}
+ 
+show={hoverStates.mbPrime}
+onMouseEnter={() => handleMouseEnter('mbPrime')}
+onMouseLeave={() => handleMouseLeave('mbPrime')}
               >
 
      <Card style={{ width: '18rem' }}>
@@ -84,19 +103,48 @@ onMouseLeave={() => setIsHoveringMbPrime(false)}
            </Nav>
            <Nav>
              <NavDropdown title="LOGIN" id="basic-nav-dropdown" className='custom-dropdown text-white'
-                   show={isHoveringLogin}
-                   onMouseEnter={() => setIsHoveringLogin(true)}
-                   onMouseLeave={() => setIsHoveringLogin(false)}  >
+                 show={hoverStates.login}
+                 onMouseEnter={() => handleMouseEnter('login')}
+                 onMouseLeave={() => handleMouseLeave('login')}
+                    >
                <NavDropdown.Item href="#action/3.1">MY Activity</NavDropdown.Item>
-               <NavDropdown.Item href="#action/3.2">
-                 Another action
+               <NavDropdown.Item href="#action/3.2" className='LoginFont'>
+                 Requested Properties <Badge bg="warning" text="dark" style={{borderRadius:'40px'}}>New</Badge>
                </NavDropdown.Item>
-               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-               <NavDropdown.Divider />
-               <NavDropdown.Item href="#action/3.4">
-                 Separated link
+               <NavDropdown.Item href="#action/3.3" className='LoginFont'>Contacted Properties</NavDropdown.Item>
+               <Container>
+               < hr  />
+               </Container>
+               <NavDropdown.Item href="#action/3.4" className='LoginFont'>
+                 Viewed Properties
                </NavDropdown.Item>
+               <NavDropdown.Item href="#action/3.4" className='LoginFont'>
+                 SJortListed Properties
+               </NavDropdown.Item>
+               <NavDropdown.Item href="#action/3.4"className='LoginFont'>
+                 Searches
+               </NavDropdown.Item>
+               <NavDropdown.Item href="#action/3.4"className='LoginFont'>
+                 Recomendation
+               </NavDropdown.Item>
+               <NavDropdown.Item href="#action/3.4"className='LoginFont'>
+                 My profile
+               </NavDropdown.Item>
+               <NavDropdown.Divider  />
+               
+               <Button  variant='danger' style={{borderColor:'red',borderRadius:'30px' ,width:'80%'}} className='mx-2'>
+           Login  
+                </Button>
+              
+                <NavDropdown.Item  style={{fontSize:'14px',color:'gray',display:'flex'}}>
+                 New to Magicbricks?
+
+               <Link to='/userLogin'>< Button   style={{color:'red',fontWeight:'bold',marginBottom:'10px',backgroundColor:'white',borderColor:'white'}}>Sign Up</ Button>
+               </Link>
+               </NavDropdown.Item>
+
              </NavDropdown>
+            
            </Nav>
            
            <Navbar.Text href="#home" className=" mx-4 rounded-white-bg text-link-decoration"  style={{marginRight:'30px'}}>Post Property
@@ -108,14 +156,14 @@ onMouseLeave={() => setIsHoveringMbPrime(false)}
             <Navbar expand="lg" className="navbaar2 bg-body-tertiary" style={{ top: '50px', zIndex: 1010,backgroundColor:'white' ,margin:'0px'}}>
                 <Container>
                     <Nav className="me-auto" >
-                        <Nav className="me-auto"> 
+                        
 
 <NavDropdown  className='text-white mx-3 custom-arrow' title="Buy" 
  
 id="basic-nav-dropdown"
-show={isHoveringBuy}
-onMouseEnter={() => setIsHoveringBuy(true)}
-onMouseLeave={() => setIsHoveringBuy(false)}
+show={hoverStates.Buy}
+onMouseEnter={() => handleMouseEnter('Buy')}
+onMouseLeave={() => handleMouseLeave('Buy')}
  >
  
  <div style={{ width: '600%', padding: '20px', backgroundColor: 'white', color: 'black', position: 'absolute', boxShadow:'2px 3px 5px grey',borderRadius:'0 10 20 30'}}>
@@ -228,9 +276,10 @@ onMouseLeave={() => setIsHoveringBuy(false)}
 
 
 <NavDropdown  className='text-white mx-3 custom-arrow' title=" RENT" id="basic-nav-dropdown"
-       show={isHoveringRent}
-       onMouseEnter={() => setIsHoveringRent(true)}
-       onMouseLeave={() => setIsHoveringRent(false)}>
+          show={hoverStates.RENT}
+          onMouseEnter={() => handleMouseEnter('RENT')}
+          onMouseLeave={() => handleMouseLeave('RENT')}
+       >
 <NavDropdown.Item href="#action/3.1"> INDIA</NavDropdown.Item> 
 <NavDropdown.Item href="#action/3.2"> 
 </NavDropdown.Item> 
@@ -244,9 +293,10 @@ onMouseLeave={() => setIsHoveringBuy(false)}
 
 
 <NavDropdown  className='text-white mx-3 custom-arrow' title=" SELL" id="basic-nav-dropdown"
-  show={isHoveringSell}
-  onMouseEnter={() => setIsHoveringSell(true)}
-  onMouseLeave={() => setIsHoveringSell(false)}>
+  show={hoverStates.SELL}
+  onMouseEnter={() => handleMouseEnter('SELL')}
+  onMouseLeave={() => handleMouseLeave('SELL')}
+  >
 <NavDropdown.Item href="#action/3.1"> INDIA</NavDropdown.Item> 
 <NavDropdown.Item href="#action/3.2"> 
 </NavDropdown.Item> 
@@ -259,9 +309,10 @@ onMouseLeave={() => setIsHoveringBuy(false)}
 
 
 <NavDropdown  className='text-white  mx-3 custom-arrow' title=" HOME LOANS" id="basic-nav-dropdown"
- show={isHoveringHomeLoan}
- onMouseEnter={() => setIsHoveringHomeLoan(true)}
- onMouseLeave={() => setIsHoveringHomeLoan(false)}>
+  show={hoverStates.HOMELOANS}
+  onMouseEnter={() => handleMouseEnter('HOMELOANS')}
+  onMouseLeave={() => handleMouseLeave('HOMELOANS')}
+ >
 <NavDropdown.Item href="#action/3.1"> INDIA</NavDropdown.Item> 
 <NavDropdown.Item href="#action/3.2"> 
 </NavDropdown.Item> 
@@ -274,9 +325,10 @@ onMouseLeave={() => setIsHoveringBuy(false)}
 
 
 <NavDropdown  className='text-white mx-3 custom-arrow' title="Property Services" id="basic-nav-dropdown"
- show={isHoveringPropertyServices}
- onMouseEnter={() => setIsHoveringPropertyServices(true)}
- onMouseLeave={() => setIsHoveringPropertyServices(false)}>
+  show={hoverStates.PropertyServices}
+  onMouseEnter={() => handleMouseEnter('PropertyServices')}
+  onMouseLeave={() => handleMouseLeave('PropertyServices')}
+ >
 <NavDropdown.Item href="#action/3.1"> INDIA</NavDropdown.Item> 
 <NavDropdown.Item href="#action/3.2"> 
 </NavDropdown.Item> 
@@ -293,10 +345,10 @@ onMouseLeave={() => setIsHoveringBuy(false)}
   MB Advice <Badge bg="warning" text="dark" style={{borderRadius:'40px'}}>New</Badge>
 </span>
 } id="basic-nav-dropdown" style={{display:'flex'}}
-show={isHoveringMbAdvice}
-onMouseEnter={() => setIsHoveringMbAdvice(true)}
-onMouseLeave={() => setIsHoveringMbAdvice(false)}>
-{/* <Badge bg="warning" text="dark">New</Badge> */}
+show={hoverStates.MBAdvice}
+onMouseEnter={() => handleMouseEnter('MBAdvice')}
+onMouseLeave={() => handleMouseLeave('MBAdvice')}
+>
 
 <NavDropdown.Item href="#action/3.1"> INDIA</NavDropdown.Item> 
 <NavDropdown.Item href="#action/3.2"> 
@@ -311,9 +363,10 @@ onMouseLeave={() => setIsHoveringMbAdvice(false)}>
 
 
 <NavDropdown  className='text-white mx-3 custom-arrow' title=" Help" id="basic-nav-dropdown"
-show={isHoveringHelp}
-onMouseEnter={() => setIsHoveringHelp(true)}
-onMouseLeave={() => setIsHoveringHelp(false)}>
+show={hoverStates.Help}
+onMouseEnter={() => handleMouseEnter('Help')}
+onMouseLeave={() => handleMouseLeave('Help')}
+>
 <NavDropdown.Item href="#action/3.1"> INDIA</NavDropdown.Item> 
 <NavDropdown.Item href="#action/3.2"> 
 </NavDropdown.Item> 
@@ -328,7 +381,7 @@ onMouseLeave={() => setIsHoveringHelp(false)}>
 
 
 
-</Nav> 
+ 
                     </Nav>
                 </Container>
             </Navbar>

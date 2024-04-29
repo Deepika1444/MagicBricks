@@ -41,7 +41,13 @@
   
 
  }
- 
+.LoginFont{
+  font-weight: bold;
+  font-size: 15px;
+}
+.LoginFont:hover{
+  color: red;
+}
 .rounded-white-bg {
   background-color: white;
   border-radius: 30px; /* Standard border radius for slight rounding */
@@ -250,6 +256,10 @@
   box-shadow: 2px 3px 3px gray;
 transform: scale(1.01);
 }
+.CardHover:hover .hoverZoom {
+  transform: scale(1.05); /* Slightly enlarges the image */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
 .nav_boldB{
   /* font-weight: bold; */
   /* color:gray; */
@@ -274,6 +284,30 @@ transform: scale(1.01);
 .nav_boldB::after{
   width: 30%;
 }
+ .ArrowButton:hover{
+  background-color:  rgb(218, 17, 17) !important;
+  border-color: rgb(218, 17, 17) !important;
+  color: white !important;
+
+ }
+ .ArrowButton2:hover{
+  background-color:  rgb(218, 17, 17)  !important;
+  border-color: rgb(218, 17, 17)  !important;
+  color: white  !important;
+
+ }
+  
+
+.ArrowButton2{
+  background-color:  rgb(218, 17, 17);
+  border-color: rgb(218, 17, 17);
+  color: white;
+
+}
+
+  
+
+
 
  
  /* adice&tools */
@@ -297,4 +331,7 @@ transform: scale(1.01);
   margin-right: 50px;
 }
 
- 
+ /* //moredetails2.js */
+ li{
+  margin-top: 6px;
+ }
