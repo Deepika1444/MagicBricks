@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  scroll-behavior: smooth;
 }
 
 .App-logo {
@@ -152,20 +153,24 @@
   z-index: 1030;
  }
  .navbaar2{
-  position: fixed;
+  position: relative;
   top: 50px; /* adjust this value to be the height of the first navbar */
   width: 100%;
-  z-index: 1030;
+  z-index: 1050;
   margin-bottom: 50px;
   
 
  }
+ .container, .navbaar2 {
+  overflow: visible; /* This ensures that dropdowns are not clipped */
+}
 .searchRoundeed{
   border-radius: 50px;
 }
 .OnIcon{
   display: inline;
-  color: #ff004f;
+  color: light;
+  
 }
 .borderless-input{
   border: none !important; /* Remove border */
@@ -294,7 +299,6 @@ transform: scale(1.01);
   background-color:  rgb(218, 17, 17)  !important;
   border-color: rgb(218, 17, 17)  !important;
   color: white  !important;
-
  }
   
 
@@ -304,11 +308,6 @@ transform: scale(1.01);
   color: white;
 
 }
-
-  
-
-
-
  
  /* adice&tools */
 .AdviceHover:hover{
@@ -316,10 +315,7 @@ transform: scale(1.01);
   cursor: pointer;
   transform: scale(1.00);
 }
-
-
-
-
+ 
 /* footer */
 
 .footmrgin{
@@ -335,3 +331,37 @@ transform: scale(1.01);
  li{
   margin-top: 6px;
  }
+ /* //moredetails3.js */
+  
+
+ /* //freshproperties.js */
+ /* .fresh-properties .header {
+  margin-top: 30px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.property-grid {
+  margin-top: 10px;
+}
+
+.arrow-button {
+  position: absolute;
+  top: 387%;
+  border-radius: 40px;
+  height: 40px;
+}
+
+.arrow-button.prev {
+  left: 90px;
+}
+
+.arrow-button.next {
+  right: 95px;
+}
+
+.details-button, .cart-button {
+  margin-top: 10px;
+  text-decoration: none;
+} */
+

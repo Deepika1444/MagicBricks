@@ -1,5 +1,5 @@
 import React , { useState }  from "react";
-import { Container ,Navbar ,Dropdown,Form,Button } from "react-bootstrap";
+import { Container ,Navbar ,Dropdown,Form,Button,Row,Col,Nav } from "react-bootstrap";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import HomeIcon from '@mui/icons-material/Home';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
@@ -29,8 +29,42 @@ let Header=()=>{
             <Navbar.Text href="#home" className='nav_bold text-dark ms-4'>Commercial</Navbar.Text>
             <Navbar.Text href="#home" className='nav_bold text-dark ms-4'>Post Free Property Ad</Navbar.Text>
             </Container>
+            {/* <Container>
+      <Row className="mt-5 mb-5">
+        <Col>
+          <h3>Find Your Perfect <i><b>Rental Home</b></i></h3>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Nav className="justify-content-center">
+            <Nav.Item>
+              <Nav.Link href="#home" className="text-dark">Buy</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#home" className="text-dark">Rent</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#home" className="text-dark">New Projects</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#home" className="text-dark">PG</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#home" className="text-dark">Plot</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#home" className="text-dark">Commercial</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#home" className="text-dark">Post Free Property Ad</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Col>
+      </Row>
+    </Container> */}
 
-            <div className=" searchRoundeed border  p-3 mt-4" style={{width:'60%', marginLeft:'250px',height:'80px'}}>
+            <div className=" searchRoundeed border  p-2 mt-2" style={{width:'60%', marginLeft:'250px',height:'80px'}}>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container style={{marginBottom:'10px'}}>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -62,9 +96,9 @@ let Header=()=>{
                   {/* Add more options here */}
                 </Dropdown.Menu>
               </Dropdown>
-              <Dropdown className="me-2"> 
-                <Dropdown.Toggle variant="light" id="flat-dropdown">
-                  <h1 className="OnIcon"><HomeIcon/></h1>
+              <Dropdown className="me-2" > 
+                <Dropdown.Toggle variant="danger" id="flat-dropdown">
+                  <h1 className="OnIcon" ><HomeIcon /></h1>
                   Flat +2
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -85,7 +119,7 @@ let Header=()=>{
                 </Dropdown.Menu>
               </Dropdown>
               <Dropdown className="me-2">
-                <Dropdown.Toggle variant="light" id="budget-dropdown">
+                <Dropdown.Toggle variant="danger" id="budget-dropdown"  >
                   <h1 className="OnIcon"><CurrencyRupeeIcon/></h1>
                   Budget
                 </Dropdown.Toggle>
@@ -116,7 +150,7 @@ let Header=()=>{
               {/* <Form.Control type="text" placeholder="Search" className="me-1" id="form-control " style={{width:'150px'}} /> */}
               {/* <Button variant="danger"> <SearchIcon className="OnIcon"/>Search</Button>
                */}
-       <Button variant="danger" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',height:'60px', width:'140px',borderRadius:'40px' }}>
+       <Button variant="danger" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',height:'50px', width:'140px',borderRadius:'40px' }}>
   <SearchIcon style={{ marginRight: '5px' }} /> <span style={{fontWeight:'bold',fontSize:'22px'}}>Search</span>
 </Button>
 
