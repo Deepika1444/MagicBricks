@@ -42,6 +42,8 @@ const handleMouseLeave = (dropdown) => {
 };
 const handleSignout=()=>{
    localStorage.removeItem("userName");
+   localStorage.removeItem("cartItems");
+
     
    
 }
@@ -228,10 +230,11 @@ useEffect(() => {
 
              </NavDropdown>)}
            </Nav>
-           
-           <Navbar.Text href="#home" className=" mx-4 rounded-white-bg text-link-decoration"  style={{marginRight:'30px'}}>Post Property
+           <Link to="/fetchingdata">
+           <Navbar.Text href="" className=" mx-4 rounded-white-bg text-link-decoration"  style={{marginRight:'30px'}}>Post Property
            <Badge bg="warning" text="dark" className="rounded-white-bg mx-3">FREE</Badge>
            </Navbar.Text>
+           </Link>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
@@ -480,7 +483,7 @@ onMouseLeave={() => handleMouseLeave('Buy')}
 <NavDropdown.Divider />
 
 <Link to="/PostProperty">
-<Nav.Link href="#action/3.4" style={{color:'black'}}>
+<Nav.Link href="/fetchingdata" style={{color:'black'}}>
     Post Property <Badge bg="warning" text="dark" style={{borderRadius:'40px'}}>New</Badge>
 </Nav.Link></Link>
 <NavDropdown.Item href="https://www.magicbricks.com/ready-to-move-flats-in-bangalore-pppfs">Ready To Move</NavDropdown.Item>

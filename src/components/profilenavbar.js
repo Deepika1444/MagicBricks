@@ -27,9 +27,7 @@ function  ProfileNavbar() {
       HOMELOANS:false,
       PropertyServices:false,
       MBAdvice:false,
-      Help:false
-
-
+      Help:false 
       // Add other states
   });
   

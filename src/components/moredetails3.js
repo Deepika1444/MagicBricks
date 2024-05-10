@@ -141,7 +141,7 @@ export default function MoreDetails3() {
 
 
 <Card sx={{ maxWidth: 945, ml: 6, mt: 5, bgcolor: 'light', border: '1px solid lightgray' }}>
-    <MultiActionAreaCard/>
+    {/* <MultiActionAreaCard/> */}
     </Card>
     </>
 

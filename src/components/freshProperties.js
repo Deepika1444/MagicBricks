@@ -142,7 +142,7 @@
 import React, { useState  } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Typography, CardContent, CardMedia, CardActionArea, CardActions, Button, alertTitleClasses } from '@mui/material';
+import { Typography, CardContent, CardMedia, CardActionArea, CardActions, Button } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -195,24 +195,43 @@ function FreshProperty() {
         }
     ];
     const { index, handleNext, handlePrev } =  Arrrowaction(cards.length, cardsToShow);  // Assuming a custom hook for pagination
-   
 
-    const addToCart = (property) => {
-        const userId = localStorage.getItem("id") // This should be dynamically set based on the logged-in user
-        console.log("Sending data:", { userId, items: [property] });
+    // const addToCart = (property) => {
+    //     const userId = localStorage.getItem("id") // This should be dynamically set based on the logged-in user
+    //     console.log("Sending data:", { userId, items: [property] });
+    //     axios.post('http://localhost:3002/api/cart', {
+    //         userId, 
+    //         items: [property]
+    //     })
+    //     .then(response => {
+    //         console.log('Cart updated:', response.data);
+    //         alert("peoperty added to cart")
+
+    //     })
+    //         .catch(error =>{
+    //              console.error('Failed to update cart:', error)
+    //              alert("something error") });
+    // };
+    const addToCart = (property,userName) => {
+        const currentCart = JSON.parse(localStorage.getItem("cartItems") || "[]");
+        currentCart.push(property);
+        localStorage.setItem("cartItems", JSON.stringify(currentCart));
+    
+        // const userId = localStorage.getItem("id");
         axios.post('http://localhost:3002/api/cart', {
-            userId, 
+            userName, 
             items: [property]
         })
         .then(response => {
             console.log('Cart updated:', response.data);
-            alert("peoperty added to cart")
-
+            alert("Property added to cart");
         })
-            .catch(error =>{
-                 console.error('Failed to update cart:', error)
-                 alert("something error") });
+        .catch(error => {
+            console.error('Failed to update cart:', error);
+            alert("Something went wrong");
+        });
     };
+    
     return (
         <Container className='mt-5 fresh-properties'>
             <Typography variant='h4' component="h1" className='header'>
@@ -240,9 +259,7 @@ function FreshProperty() {
                             <CardActions>
                                 {hoverIndex === cardIndex && (
                                     <>
-                                        {/* <Button variant="contained" color="primary" className="details-button">
-                                            <Link to="/details">Read Details</Link>
-                                        </Button> */}
+                                        
                                          <Link to="/details">
                                         <Button style={{ backgroundColor: 'red', color: 'White', border: '2px solid red', borderRadius: '30px' }}
                                             size="small" color="primary">
@@ -260,22 +277,13 @@ function FreshProperty() {
                 ))}
             </Row>
             <nav className='pagination-controls'>
-                {/* {index > 0 && (
-                    <Button className='arrow-button prev' onClick={handlePrev}>
-                        <ArrowBackIcon />
-                    </Button>
-                )}
-                {index < cards.length - cardsToShow && (
-                    <Button className='arrow-button next' onClick={handleNext}>
-                        <ArrowForwardIcon />
-                    </Button>
-                )} */}
+              
                   {index > 0 && (
                     <button className='ArrowButton2' 
                     style={{ position: 'absolute',
                      left: '90px',
                       marginLeft: "0px",
-                       top: '387%',
+                       top: '340%',
                         borderRadius: '40px',
                          height: '40px'
                           }} 
@@ -284,7 +292,7 @@ function FreshProperty() {
                     </button>
                 )}
                 {index < cards.length - cardsToShow && (
-                    <button className='ArrowButton' style={{ position: 'absolute', right: '95px', top: '387%', borderRadius: '20px', height: '40px' }} onClick={handleNext}>
+                    <button className='ArrowButton' style={{ position: 'absolute', right: '95px', top: '340%', borderRadius: '20px', height: '40px' }} onClick={handleNext}>
                         <ArrowForwardIcon />
                     </button>
                 )}

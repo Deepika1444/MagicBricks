@@ -4,8 +4,10 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { Navbar, Container } from 'react-bootstrap';
 import axios from 'axios';
+// import { useState } from 'react';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import ForgotPasswordModal from '../actions/forgotemail';
 
  
 function  Login() {
@@ -14,7 +16,29 @@ function  Login() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-  
+    const [showModal, setShowModal] = useState(false);
+
+    // const handleSendOtp = (email) => {
+    //   axios.post('http://localhost:3002/reset', { email })
+    //     .then(response => {
+    //       console.log('OTP sent:', response.data);
+    //     })
+    //     .catch(error => {
+    //       console.error('Error sending OTP:', error);
+    //     });
+    // };
+  const  handleSendOtp=()=>{
+    axios.post('http://localhost:3000/request-reset', {
+    email: "deepushivakumar3311@gmail.com"
+}).then(response => {
+    console.log('OTP sent successfully',response);
+}).catch(error => {
+    console.error('Error sending OTP:', error);
+    console.error('Error sending OTP:', error.response.data);
+    console.error('Status code:', error.response.status);
+    console.error('Headers:', error.response.headers);
+});
+}
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
@@ -95,6 +119,8 @@ function  Login() {
           <Link to='/Signup' style={{color:'red'}}>SignUp</Link>
         </Form.Group> 
       </div>
+      <Button variant="link" onClick={() => setShowModal(true)}>Forgot Password?</Button>
+<ForgotPasswordModal show={showModal} handleClose={() => setShowModal(false)} handleSendOtp={handleSendOtp} />
     </Form>
     </Card>
     </div>

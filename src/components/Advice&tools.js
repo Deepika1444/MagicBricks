@@ -12,6 +12,7 @@ import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
 import { Container,Row,Col ,Badge} from 'react-bootstrap';
 
+
 const bull = (
   <Box
     component="span"
@@ -25,9 +26,8 @@ export default function AdviceTools() {
   return (
     <>
     <Container className='mt-5'>
-
  <Typography variant='p' style={{marginTop:'30px',  fontSize:'35px'} } className='nav_boldB' >
-        Advice and Tools 
+        Advice and Tools
         </Typography>
         <Row style={{ marginTop:'30px', }}>
             <Col>
@@ -51,7 +51,7 @@ export default function AdviceTools() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" > Read More <ArrowForwardOutlinedIcon/> </Button>
+        <Button size="small"> Read More <ArrowForwardOutlinedIcon/> </Button>
       </CardActions>
     </Card>
     </Col>
