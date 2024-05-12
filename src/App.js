@@ -11,6 +11,7 @@ import PostProperty from './screens/postproperty';
 import UserDetails from './screens/profiledetail';
 import ListProduct from './components/fetchingdata';
 // import { CartProvider } from './actions/cartcontext';
+import ForgotPassword from './actions/forgotemail';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
       <Route path='/Postproperty' element={< PostProperty/>}/>
       <Route path='/profileDetail' element={< UserDetails />}/>
       <Route path='/fetchingdata' element={< ListProduct />}/>
+      <Route path='/forgot-password' element={< ForgotPassword />}/>
+
 
 
 

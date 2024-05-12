@@ -423,18 +423,18 @@ const ListProduct = () => {
                 <Card.Text>
                   <p><b>Address:</b>{product.address}</p>
                 </Card.Text>
-                <Button variant="danger" onClick={() => handleOwnerDetailsClick(product)}>Owner details</Button>
+                <Button variant="danger" onClick={() => handleOwnerDetailsClick(product)}  style={{borderRadius:'30px'}}>Owner details</Button>
               </Card.Body>
             </Card>
           </Col>
         ))}
         {index > 0 && (
-          <Button className='ArrowButton2' style={{ position: 'absolute', left: '70px', top: '120%',width:'40px',borderRadius: '20px', }} onClick={handlePrev}>
+          <Button className='ArrowButton2' style={{ position: 'absolute', left: '80px', top: '130%',width:'40px',borderRadius: '20px', }} onClick={handlePrev}>
             <ArrowBackIcon />
           </Button>
         )}
         {index < allProducts.length - cardsToShow && (
-          <Button className='ArrowButton' style={{ position: 'absolute', right: '70px', top: '120%',width:'40px',borderRadius: '20px', height: '40px' }} onClick={handleNext}>
+          <Button className='ArrowButton' style={{ position: 'absolute', right: '80px', top: '130%',width:'40px',borderRadius: '20px', height: '40px' }} onClick={handleNext}>
             <ArrowForwardIcon />
           </Button>
         )}
@@ -467,5 +467,4 @@ const ListProduct = () => {
 };
 
 export default ListProduct;
-
  

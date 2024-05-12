@@ -1,200 +1,11 @@
  
-// require('dotenv').config()
-// const express = require('express');
-// // const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
-// const jwt=require('jsonwebtoken')
-// const bcrypt=require('bcryptjs')
-// const mongoose=require('mongoose')
-// const path=require('path')
-// const multer=require('multer')
-
-// const db=require('./configure/database')
-// const User=require('./model/user');
-// const MbsUsers = require('./model/user');
-// const Cart=require('./model/carteditems')
-
-// const app = express();
-// const port = 3002;
-
-// // Middleware
-// app.use(cors());
-// app.use(bodyParser.json());
-
- 
-// db.connect()
-// const JWT_SECRET =  process.env.JWT_SECRET
-// if (!JWT_SECRET) {
-//   console.error("JWT_SECRET is not defined.");
-//   // Handle the error appropriately, maybe exit the process or throw an error.
-// }
-
-// // Routes
-// // app.post('/register', async (req, res) => {
-// //   const { userName, userEmail, userPassword } = req.body;
-
-// //   try {
-// //   const newUser = new User({ userName, userEmail, userPassword });
-// //     await newUser.save();
-// //     res.status(201).send("User registered successfully");
-    
-// //   } catch (error) {
-// //     res.status(400).send(error);
-// //   }
-// //   console.log("Registering user with password: ", newUser.userPassword);
-// //   console.log("Hashed password: ", this.userPassword);
-// // });
- 
-// // app.post("/Login", (req, res) => {
-// //   const { email, password } = req.body;
-// //   console.log( req.body)
-
- 
-// //   MbsUsers.findOne({ userEmail: email })
-// //   .then(user => {
-// //       if (user) {
-// //         console.log(user)
-// //           bcrypt.compare(password, user.userPassword, () => {
-// //             console.log(user.userPassword)
-              
-// //               if (password === user.userPassword) {
-// //                   res.json("success");
-// //               } else {
-// //                   res.json("the password is incorrect");
-// //               }
-// //           });
-// //       } else {
-// //           res.json("no record existed");
-// //       }
-// //   })
-// //   .catch(err => {
-// //       console.error("Login error:", err);
-// //       res.status(500).json("Internal Server Error");
-// //   });
-
-// // });
-// // app.post('/register', async (req, res) => {
-// //   const { userName, userEmail, userPassword } = req.body;
-// //   try {
-// //     const salt = await bcrypt.genSalt(10);
-// //     const hashedPassword = await bcrypt.hash(userPassword, salt);
-// //     const newUser = new User({ userName, userEmail, userPassword: hashedPassword });
-// //     await newUser.save();
-// //     res.status(201).send("User registered successfully");
-// //   } catch (error) {
-// //     res.status(400).send(error);
-// //   }
-// //   const token = jwt.sign(
-// //     { id: newUser._id, email: newUser.userEmail },  // Payload can include user ID and email
-// //     JWT_SECRET,
-// //     { expiresIn: '24h' }  // Token expires in 24 hours
-// //   );
-// // });
-// app.post('/register', async (req, res) => {
-//   const { userName, userEmail, userPassword,userNumber  } = req.body;
-
-//   try {
-//     const salt = await bcrypt.genSalt(10);
-//     const hashedPassword = await bcrypt.hash(userPassword, salt);
-//     const newUser = new User({ userName, userEmail, userPassword: hashedPassword,userNumber  });
-//     await newUser.save();
-//     // Assuming newUser has _id and userEmail fields once saved
-
-//     // Sign the JWT token with user's _id and email
-//     const token = jwt.sign(
-//       { id: newUser._id, userEmail: newUser.userEmail,userName: newUser.userName },
-//       JWT_SECRET,
-//       { expiresIn: '24h' }
-//     );
-
-//     // Send the token along with a success message
-//     res.status(201).json({ message: "User registered successfully", token: token });
-//   } catch (error) {
-//     console.log(error); // Log the error for debugging
-//     res.status(400).json({ error: error.message });
-//   }
-// });
- 
-
-// app.post("/Login", async (req, res) => {
-//   const { email, password } = req.body;
-
-//   try {
-//     const user = await MbsUsers.findOne({ userEmail: email });
-//     if (!user) {
-//       return res.status(404).json("User not found");
-//     }
-
-//     // Properly use bcrypt to compare the hashed password
-//     const isMatch = await bcrypt.compare(password, user.userPassword);
-//     if (isMatch) {
-//       // Create a token
-//       const token = jwt.sign(
-//         { id: user._id, email: user.userEmail},  // Payload can include user ID and email
-//         JWT_SECRET,
-//         { expiresIn: '2d' }  // Token expires in 24 hours
-//       );
-//       // console.log(token
-//       // )
-//       res.json({ message: "Login successful", token:token,
-//        userName: user.userName ,
-//        userEmail:user.userEmail,
-//        userNumber:user.userNumber,
-//        id:user._id});
-//     } else {
-//       res.status(401).json("Password is incorrect");
-//     }
-//   } catch (err) {
-//     console.error("Login error:", err);
-//     res.status(500).json("Internal Server Error");
-//   }
-// }); 
-
-
-// // app.get('/protected-route', authenticateToken, (req, res) => {
-// //   res.json({ message: `Welcome, your email is ${req.user.email}` });
-// // });
-// app.post('/api/cart',  async (req, res) => {
-//   const { userId,  items } = req.body;
-//   // const {userId}=req
-//   // console.log(req.body); 
-
-//   try {
-//       let cart = await Cart.findOne({ userId });
-//       if (!cart) {
-//           cart = new Cart({ userId, items });
-//       } else {
-//           // Optionally clear the old cart items or merge them
-//           cart.items.push(...items);
-//       }
-//       await cart.save();
-//       res.status(200).json(cart);
-//       const result = processCartData(req.body);  // Hypothetical function
-//     if (result.error) {
-//         return res.status(500).json({ message: "Error processing request", error: result.error });
-//     }
-//     res.status(200).json({ message: "Data processed successfully", data: result });
-//   } catch (error) {
-//       res.status(500).json({ message: error.message });
-//   }
-// });
- 
-
- 
- 
- 
-// app.listen(port, () => {
-//   console.log(`Server running on port ${port}`);
-// });
 
 
 
 
 
-
-
-
+//Use a Certificate from a Trusted CA: 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //only fpr development
 require('dotenv').config()
 const mongoose=require("mongoose")
 const express = require('express');
@@ -212,21 +23,32 @@ const User=require('./model/user');
 const MbsUsers = require('./model/user');
 const Cart=require('./model/carteditems')
 const app = express();
-const passwordResetRouter =require('./middleware/pswdrouter')
-// const router = express.Router();
 const port = 3002;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
- app.use('/pwds',passwordResetRouter)
+
+
+
+
+
+
+
+
 db.connect()
 const JWT_SECRET =  process.env.JWT_SECRET
 if (!JWT_SECRET) {
   console.error("JWT_SECRET is not defined.");
 
 }
+
+
+
+
+
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -405,30 +227,67 @@ app.get("/allproducts", async (req, res) => {
       res.status(500).json("Internal Server Error");
     }
 });
+ 
+// Configure Nodemailer with Gmail credentials
+// It creates a transporter object using the nodemailer.createTransport method and 
+//provides it with Gmail credentials  
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: 'anikethani123456789@gmail.com',  // Replace with your real email
+      pass: 'vbny njyu sjzc kiji'             // Replace with your real app password
+  }
+});
 
-// router.post('/request-reset', async (req, res) => {
-//   const { email } = req.body;
-//   const otp = Math.floor(100000 + Math.random() * 900000); // Generate a 6 digit OTP
-//   const mailOptions = {
-//     from: ' anikethani123456789@gmail.com',
-//     to: email,
-//     subject: 'Password Reset',
-//     text: `Your OTP for password reset is: ${otp}`
-//   };
+// Function to send email
+const sendEmail = (to, subject) => {
+  const otp = Math.floor(100000 + Math.random() * 900000);  // Generate a 6-digit OTP
 
-//   try {
-//     await transporter.sendMail(mailOptions);
-//     console.log('Email sent');
-//     // Here, you should save the OTP to the database with an expiration time
-//     res.status(200).send('OTP sent to your email.');
-//   } catch (error) {
-//     console.error('Failed to send email:', error);
-//     res.status(500).send('Failed to send OTP.');
-//   }
-// });
+  const mailOptions = {
+      from: 'anikethani123456789@gmail.com',  // This should match the `auth.user`
+      to: to,
+      subject: subject,
+       
+      html: `
+      <h1>Reset Your Password</h1>
+      <p>Your OTP is: ${otp}</p>
+      <a href="http://localhost3000/login">
+        <button style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+          Reset Password
+        </button>
+      </a>`
+      //   html:`
+      // <h1>Reset Your Password</h1>
+      // <p>Your OTP is: ${otp}</p>
+      // <form action="http://yourbackenddomain.com/reset-password" method="POST">
+      //   <input type="hidden" name="email" value="${to}">
+      //   <input type="hidden" name="otp" value="${otp}">
+      //   <input type="password" name="newPassword" placeholder="Enter your new password" required>
+      //   <button type="submit">Reset Password</button>
+      // </form>`
+  
+  };
 
-// module.exports = router;
+  transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+          console.log('Error sending mail:', error);
+      } else {
+          console.log('Email sent:', info.response);
+      }
+  });
+};
 
+// Define the POST route directly in the app for forgot-password
+app.post('/forgot-password', (req, res) => {
+  console.log('Forgot Password route hit', req.body);
+  const { email } = req.body;
+  const otp = Math.floor(100000 + Math.random() * 900000);  // Generate a 6-digit OTP
+  sendEmail(email, 'Reset Your Password', `Your OTP is: ${otp}`);
+
+  // Respond to the client after attempting to send the email
+  res.status(200).json({ message: "Email sent, please check your inbox." });
+});
+ 
  
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

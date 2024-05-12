@@ -192,6 +192,14 @@ function FreshProperty() {
             location: "Whitefield Bangalore",
             image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/21/Photo_h180_w240/71972061_7_restigeparkgrovewhitefield_180_240.jpg",
             readytomove: "Under Construction"
+        },
+        {
+            title: "3 BHK Flat",
+            price: "1.26cr",
+            size: "1149 sqft",
+            location: "Whitefield Bangalore",
+            image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/15/Photo_h180_w240/71874271_5_PropertyImage377-5241042579304_180_240.jpg",
+            readytomove: "Under Construction"
         }
     ];
     const { index, handleNext, handlePrev } =  Arrrowaction(cards.length, cardsToShow);  // Assuming a custom hook for pagination
@@ -283,7 +291,7 @@ function FreshProperty() {
                     style={{ position: 'absolute',
                      left: '90px',
                       marginLeft: "0px",
-                       top: '340%',
+                       top: '377%',
                         borderRadius: '40px',
                          height: '40px'
                           }} 
@@ -292,7 +300,7 @@ function FreshProperty() {
                     </button>
                 )}
                 {index < cards.length - cardsToShow && (
-                    <button className='ArrowButton' style={{ position: 'absolute', right: '95px', top: '340%', borderRadius: '20px', height: '40px' }} onClick={handleNext}>
+                    <button className='ArrowButton' style={{ position: 'absolute', right: '95px', top: '377%', borderRadius: '20px', height: '40px' }} onClick={handleNext}>
                         <ArrowForwardIcon />
                     </button>
                 )}

@@ -67,12 +67,12 @@ function PropertyServices() {
         ))}
       </Row>
       {index > 0 && (
-        <button  className='ArrowButton2' style={{ position: 'absolute', left: '87px',marginLeft: "0px", top: '284%',borderRadius:'40px',height:'40px'   }} onClick={handlePrev}>
+        <button  className='ArrowButton2' style={{ position: 'absolute', left: '87px',marginLeft: "0px", top: '324%',borderRadius:'40px',height:'40px'   }} onClick={handlePrev}>
           <ArrowBackIcon />
         </button>
       )}
       {index < cards.length - cardsToShow && (
-        <button  className='ArrowButton' style={{ position: 'absolute', right: '135px', top: '284%' ,borderRadius:'20px',height:'40px'}}  onClick={handleNext}>
+        <button  className='ArrowButton' style={{ position: 'absolute', right: '135px', top: '324%' ,borderRadius:'20px',height:'40px'}}  onClick={handleNext}>
           <ArrowForwardIcon />
         </button>
       )}

@@ -10,7 +10,7 @@ import CardMedia from '@mui/material/CardMedia';
 // import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link ,Box} from '@mui/material';
-import { Container,Row,Col ,Button,Badge} from 'react-bootstrap';
+import { Container,Row,Col , Modal,Button,Badge} from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
 import BedOutlinedIcon from '@mui/icons-material/BedOutlined';
 import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
@@ -27,8 +27,13 @@ export default function MoreDetails() {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userNumber, setUserNumber] = useState('');
+  
+  
+ 
+   
 
-useEffect(() => {
+
+  useEffect(() => {
   const storedUserName = localStorage.getItem("userName");
   const storedUserEmail = localStorage.getItem("userEmail");
   const storedUserNumber = localStorage.getItem("userNumber");
@@ -254,6 +259,7 @@ useEffect(() => {
     </div>
   </div>
 </div>
+ 
 
         <Button  variant='light' style={{borderColor:'red',borderRadius:'30px'}}>
             Book Visit     <Badge bg="warning" text="dark" className="rounded-white-bg mx-2">FREE Cab</Badge>

@@ -72,7 +72,7 @@ function OutlinedCard() {
         <br/> 
        
 
-        <Card.Img variant="top" style={{width:'60px', marginLeft:'25px',  border:'5px solid skyblue'}} src="https://img.staticmb.com/mbimages/user/Photo_h75_w75/27283004_logo_75_75.jpg" />
+        <Card.Img variant="top" style={{width:'60px', marginLeft:'45px',  border:'5px solid skyblue'}} src="https://img.staticmb.com/mbimages/user/Photo_h75_w75/27283004_logo_75_75.jpg" />
             </div> 
              {/* mydwelling card */} 
             <div>
@@ -124,7 +124,7 @@ function OutlinedCard() {
         <br/> 
        
 
-        <Card.Img variant="top" style={{width:'60px', marginLeft:'25px',  border:'5px solid skyblue'}} src="https://img.staticmb.com/mbimages/user/Photo_h75_w75/27283004_logo_75_75.jpg" />
+        <Card.Img variant="top" style={{width:'60px', marginLeft:'45px',  border:'5px solid skyblue'}} src="https://img.staticmb.com/mbimages/user/Photo_h75_w75/27283004_logo_75_75.jpg" />
             </div> 
              {/* mydwelling card */} 
             <div>
@@ -177,7 +177,7 @@ function OutlinedCard() {
         <br/> 
        
 
-        <Card.Img variant="top" style={{width:'60px', marginLeft:'25px',  border:'5px solid skyblue'}} src="https://img.staticmb.com/mbimages/user/Photo_h75_w75/27283004_logo_75_75.jpg" />
+        <Card.Img variant="top" style={{width:'60px', marginLeft:'45px',  border:'5px solid skyblue'}} src="https://img.staticmb.com/mbimages/user/Photo_h75_w75/27283004_logo_75_75.jpg" />
             </div> 
              {/* mydwelling card */} 
             <div>

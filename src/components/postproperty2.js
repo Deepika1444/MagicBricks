@@ -112,7 +112,8 @@
 
 
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container,Navbar } from "react-bootstrap";
+
 
 const AddProduct = () => {
   const [image, setImage] = useState(null);
@@ -125,6 +126,7 @@ const AddProduct = () => {
     sqft: "",
     address: "",
   });
+  const [inputKey, setInputKey] = useState(Date.now());
 
   const AddProduct = async () => {
     // Add your logic for adding a product
@@ -165,6 +167,7 @@ const AddProduct = () => {
             address:"",
           });
           setImage(null);
+          setInputKey(Date.now());  
         } else {
           alert("Failed to add product");
         }
@@ -186,14 +189,22 @@ const AddProduct = () => {
   };
 
   return (
+    <>
+    <Navbar expand="lg" className="bg-body-tertiary" fixed="top" style={{ zIndex: 1020, marginTop: '0px' }}>
+        <Container fluid className='navColor' style={{ height: '50px' }}>
+           <Navbar.Brand href="#home" className='text-white' style={{ marginLeft: '30px' }}>
+             <img src="https://cdn.staticmb.com/magicservicestatic/images/revamp/mb-logo-web-white.svg" width="160" alt="logo" />
+           </Navbar.Brand>
+         </Container>
+     </Navbar>
     <Container
     
       style={{
         display: "flex",
-        // justifyContent: "center",
-        // alignItems: "center",
-        height: "125vh",
-        marginBottom:'150px'
+      
+        height: "139vh",
+        marginBottom:'150px',
+        marginTop:'50px'
       }}
     >
       <div
@@ -366,7 +377,7 @@ const AddProduct = () => {
               placeholder="Enter Address"
             />
           </div>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <label
               className="form-label"
               style={{
@@ -384,7 +395,11 @@ const AddProduct = () => {
               className="form-control"
               accept="image/*"
             />
-          </div>
+          </div> */}
+           <div className="mb-3">
+              <label className="form-label" style={{ fontSize: "14px", fontWeight: "bold", color: "#555555" }}>Product Images</label>
+              <input type="file" name="image" onChange={imageHandler} className="form-control" accept="image/*" key={inputKey} />
+            </div>
           <button
             type="button"
             className="btn btn-Danger"
@@ -403,7 +418,110 @@ const AddProduct = () => {
         </form>
       </div>
     </Container>
+    </>
   );
 };
 
 export default AddProduct;
+
+// import React, { useState } from "react";
+// import { Container, Navbar } from "react-bootstrap";
+
+// const AddProduct = () => {
+//   const [image, setImage] = useState(null);
+//   const [productDetails, setProductDetails] = useState({
+//     name: "",
+//     email: "",
+//     number: "",
+//     flat: "",
+//     price: "",
+//     sqft: "",
+//     address: "",
+//   });
+//   const [inputKey, setInputKey] = useState(Date.now());
+
+//   const handleAddProduct = async () => {
+//     let formData = new FormData();
+//     formData.append("product", image);
+
+//     try {
+//       const imageResponse = await fetch("http://localhost:3002/upload", {
+//         method: "POST",
+//         body: formData
+//       });
+//       const imageData = await imageResponse.json();
+
+//       if (imageData.success) {
+//         const product = { ...productDetails, image: imageData.image_url };
+//         const productResponse = await fetch("http://localhost:3002/addproduct", {
+//           method: "POST",
+//           headers: {
+//             Accept: "application/json",
+//             "Content-Type": "application/json"
+//           },
+//           body: JSON.stringify(product)
+//         });
+//         const productData = await productResponse.json();
+
+//         if (productData.success) {
+//           alert("Product Added");
+//           // Clear form after successful submission
+//           setProductDetails({
+//             name: "",
+//             email: "",
+//             number: "",
+//             flat: "",
+//             price: "",
+//             sqft: "",
+//             address: "",
+//           });
+//           setImage(null);
+//           setInputKey(Date.now());  // Reset the file input
+//         } else {
+//           alert("Failed to add product");
+//         }
+//       } else {
+//         alert("Failed to upload image");
+//       }
+//     } catch (error) {
+//       console.error("Error:", error);
+//       alert("An error occurred while adding the product");
+//     }
+//   };
+
+//   const changeHandler = (e) => {
+//     setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
+//   };
+
+//   const imageHandler = (e) => {
+//     setImage(e.target.files[0]);
+//   };
+
+//   return (
+//     <>
+//       <Navbar expand="lg" className="bg-body-tertiary" fixed="top" style={{ zIndex: 1020, marginTop: '0px' }}>
+//         <Container fluid className='navColor' style={{ height: '50px' }}>
+//           <Navbar.Brand href="#home" className='text-white' style={{ marginLeft: '30px' }}>
+//             <img src="https://cdn.staticmb.com/magicservicestatic/images/revamp/mb-logo-web-white.svg" width="160" alt="logo" />
+//           </Navbar.Brand>
+//         </Container>
+//       </Navbar>
+//       <Container style={{ marginTop: '50px', display: "flex", justifyContent: "center", height: "100vh" }}>
+//         <div className="add-product shadow p-4" style={{ width: "400px", backgroundColor: "#ffffff", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
+//           <h1 className="text-center mb-4" style={{ fontSize: "24px", fontWeight: "bold", color: "#333333" }}>Owner Details</h1>
+//           <form>
+//             {/* Form fields here */}
+//             <div className="mb-3">
+//               <label className="form-label" style={{ fontSize: "14px", fontWeight: "bold", color: "#555555" }}>Product Images</label>
+//               <input type="file" name="image" onChange={imageHandler} className="form-control" accept="image/*" key={inputKey} />
+//             </div>
+//             <button type="button" onClick={handleAddProduct} className="btn btn-danger" style={{ width: "100%", fontSize: "16px", fontWeight: "bold", borderRadius: "4px" }}>Submit</button>
+//           </form>
+//         </div>
+//       </Container>
+//     </>
+//   );
+// };
+
+// export default AddProduct;
+
