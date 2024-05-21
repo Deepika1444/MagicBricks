@@ -10,7 +10,8 @@ function OutlinedCard() {
     < >
      
     <Container style={{marginTop:'30px'}}  >
-    <h2 className='nav_boldB'  >    MB Preferred Agents in Bangalore</h2>
+    <h2 className='nav_boldB'  > 
+       MB Preferred Agents in Bangalore</h2>
     <Row> 
       <Col  >
     <Card style={{ width: '16rem'  , margin:'20px 0 0 0'}} className='MainCard'>

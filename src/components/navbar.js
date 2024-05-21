@@ -4,16 +4,7 @@ import { Navbar, Container, Nav, NavDropdown, Badge, Button, Card,Row ,Col } fro
 import CheckIcon from '@mui/icons-material/Check';
 import { Link  } from 'react-router-dom';
 function CombinedNavigation() {
-    // const [showDropdown, setShowDropdown] = useState(false);
-    // const [isHoveringMbPrime, setIsHoveringMbPrime] = useState(false);
-    // const [isHoveringLogin, setIsHoveringLogin] = useState(false);
-    // const [isHoveringBuy, setIsHoveringBuy] = useState(false);
-    // const [isHoveringRent, setIsHoveringRent] = useState(false);
-    // const [isHoveringSell, setIsHoveringSell] = useState(false);
-    // const [isHoveringHomeLoan, setIsHoveringHomeLoan] = useState(false);
-    // const [isHoveringPropertyServices, setIsHoveringPropertyServices] = useState(false);
-    // const [isHoveringMbAdvice, setIsHoveringMbAdvice] = useState(false);
-    // const [isHoveringHelp, setIsHoveringHelp] = useState(false);
+ 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userName, setUserName] = useState('');
     const [hoverStates, setHoverStates] = useState({
@@ -231,7 +222,7 @@ useEffect(() => {
              </NavDropdown>)}
            </Nav>
            <Link to="/fetchingdata">
-           <Navbar.Text href="" className=" mx-4 rounded-white-bg text-link-decoration"  style={{marginRight:'30px'}}>Post Property
+           <Navbar.Text href="" className=" mx-4 py-2 rounded-white-bg text-link-decoration"  style={{marginRight:'30px',paddingLeft:'30px'}}>Post Property
            <Badge bg="warning" text="dark" className="rounded-white-bg mx-3">FREE</Badge>
            </Navbar.Text>
            </Link>
@@ -257,7 +248,7 @@ onMouseLeave={() => handleMouseLeave('Buy')}
 <NavDropdown.Item href="#action/3.1"> Popular Choices</NavDropdown.Item> 
 <NavDropdown.Divider />
 
-<NavDropdown.Item href="https://www.magicbricks.com/ready-to-move-flats-in-bangalore-pppfs">Ready To Move</NavDropdown.Item>
+<NavDropdown.Item href="buyprdcts">Ready To Move</NavDropdown.Item>
 
 <NavDropdown.Item href="#action/3.2"> Owner Properties
 </NavDropdown.Item> 
@@ -620,7 +611,7 @@ onMouseLeave={() => handleMouseLeave('Help')}
                     </Nav>
                 </Container>
             </Navbar>
-            <hr style={{ marginTop: '100px' }} />
+            <hr style={{ marginTop: '50px' }} />
         </>
     );
 }

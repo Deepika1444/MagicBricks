@@ -12,7 +12,9 @@ import UserDetails from './screens/profiledetail';
 import ListProduct from './components/fetchingdata';
 // import { CartProvider } from './actions/cartcontext';
 import ForgotPassword from './actions/forgotemail';
+// import PPtyList from './screens/prpylist';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
+import Buyprdct from './screens/buyprdcts';
 
 function App() {
   return (
@@ -30,9 +32,8 @@ function App() {
       <Route path='/profileDetail' element={< UserDetails />}/>
       <Route path='/fetchingdata' element={< ListProduct />}/>
       <Route path='/forgot-password' element={< ForgotPassword />}/>
-
-
-
+      {/* <Route path='/ppty' element={< PPtyList />}/> */}
+      <Route path='buyprdcts' element={<Buyprdct/>}/>
 
      </Routes>
 

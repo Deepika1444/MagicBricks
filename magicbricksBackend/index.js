@@ -158,10 +158,115 @@ app.get('/api/cart', async (req, res) => {
   }
 });
 
-// app.get('/protected-route', authenticateToken, (req, res) => {
-//   res.json({ message: `Welcome, your email is ${req.user.email}` });
-// });
 
+const properties = [
+  // Your property data
+  {
+      title: "2 BHK Flat",
+      price: "1.25cr",
+      size: "1413 sqft",
+      location: "Whitefield Bangalore",
+      image: "https://img.staticmb.com/mbphoto/property/cropped_images/2023/Jun/18/Photo_h180_w240/67579841_1_PropertyImage680-0493997235518_180_240.jpg",
+      readytomove: "Ready to move"
+  },
+  {
+      title: "3 BHK Flat",
+      price: "84 Lac",
+      size: "1150 sqft",
+      location: "Whitefield, Bangalore",
+      image: "https://img.staticmb.com/mbphoto/property/cropped_images/2023/Dec/26/Photo_h180_w240/70630851_1_PropertyImage645-708314894925_180_240.jpg",
+      readytomove: "Under Construction"
+  },
+  
+        {
+            title: "3 BHK Flat",
+            price: "1.26cr",
+            size: "1149 sqft",
+            location: "Whitefield Bangalore",
+            image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/15/Photo_h180_w240/71874271_5_PropertyImage377-5241042579304_180_240.jpg",
+            readytomove: "Under Construction"
+        },
+        {
+            title: "2 BHK Flat",
+            price: "1.18cr",
+            size: "1140 sqft",
+            location: "Whitefield Bangalore",
+            image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Feb/16/Photo_h180_w240/71421853_4_hatsAppImage20240212at10.59.56AM_180_240.jpeg",
+            readytomove: "Under Construction"
+        },
+        {
+            title: "2 BHK Flat",
+            price: "1.40cr",
+            size: "1918 sqft",
+            location: "Whitefield Bangalore",
+            image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/21/Photo_h180_w240/71972061_7_restigeparkgrovewhitefield_180_240.jpg",
+            readytomove: "Under Construction"
+        },
+        {
+            title: "3 BHK Flat",
+            price: "1.26cr",
+            size: "1149 sqft",
+            location: "Whitefield Bangalore",
+            image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/15/Photo_h180_w240/71874271_5_PropertyImage377-5241042579304_180_240.jpg",
+            readytomove: "Under Construction"
+        }
+  // Add the rest of the property data here
+];
+
+app.get('/api/properties', (req, res) => {
+  res.json(properties);
+});
+
+
+const properties2 = [
+  {
+      title: "2 BHK Flat",
+      price: "1.25cr",
+      size: "1413 sqft",
+      location: "Whitefield Bangalore",
+      image: "https://img.staticmb.com/mbphoto/property/cropped_images/2023/Jun/18/Photo_h180_w240/67579841_1_PropertyImage680-0493997235518_180_240.jpg",
+      readytomove: "Ready to move"
+  },
+  {
+      title: "3 BHK Flat",
+      price: "84 Lac",
+      size: "1150 sqft",
+      location: "Whitefield, Bangalore",
+      image: "https://img.staticmb.com/mbphoto/property/cropped_images/2023/Dec/26/Photo_h180_w240/70630851_1_PropertyImage645-708314894925_180_240.jpg",
+      readytomove: "Under Construction"
+  },
+  {
+      title: "3 BHK Flat",
+      price: "1.26cr",
+      size: "1149 sqft",
+      location: "Whitefield Bangalore",
+      image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/15/Photo_h180_w240/71874271_5_PropertyImage377-5241042579304_180_240.jpg",
+      readytomove: "Under Construction"
+  },
+  {
+      title: "2 BHK Flat",
+      price: "1.18cr",
+      size: "1140 sqft",
+      location: "Whitefield Bangalore",
+      image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Feb/16/Photo_h180_w240/71421853_4_hatsAppImage20240212at10.59.56AM_180_240.jpeg",
+      readytomove: "Under Construction"
+  },
+  {
+      title: "2 BHK Flat",
+      price: "1.40cr",
+      size: "1918 sqft",
+      location: "Whitefield Bangalore",
+      image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/21/Photo_h180_w240/71972061_7_restigeparkgrovewhitefield_180_240.jpg",
+      readytomove: "Under Construction"
+  }
+];
+
+app.get('/api/properties2', (req, res) => {
+  res.json(properties2);
+});
+
+
+ 
 const productSchema = new mongoose.Schema({
   name: String,
   image: String,
@@ -227,6 +332,12 @@ app.get("/allproducts", async (req, res) => {
       res.status(500).json("Internal Server Error");
     }
 });
+app.get('/searchproducts', (req, res) => {
+  const { query } = req.query;
+  const filteredProducts = products.filter(p => p.name.toUpperCase().includes(query.toUpperCase()));
+  res.json(filteredProducts);
+});
+
  
 // Configure Nodemailer with Gmail credentials
 // It creates a transporter object using the nodemailer.createTransport method and 

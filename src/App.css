@@ -164,6 +164,58 @@
  .container, .navbaar2 {
   overflow: visible; /* This ensures that dropdowns are not clipped */
 }
+/* postproperty.js */
+.howo{
+  background-color:white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 300px;
+  position: relative;
+  left: 25rem;
+  margin-top: 2rem;
+ 
+}
+.carrds{
+  position: relative;
+  left: 25rem;
+}
+.card h2 {
+  color: #4CAF50;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.card-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card-item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+.card-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+.highlight {
+  font-weight: bold;
+  color: #333;
+}
+.fixu{
+  position: absolute;
+  bottom: 20rem;
+}
+.stick{
+  position: fixed;
+}
+
+
+
+
+/* //header.ja */
 .searchRoundeed{
   border-radius: 50px;
 }
@@ -172,6 +224,28 @@
   color: light;
   
 }
+.search-rounded {
+  border-radius: 50px;
+}
+
+.borderless-input {
+  border: none;
+}
+
+.OnIcon {
+  color: red;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 140px;
+  border-radius: 40px;
+}
+
+
 .borderless-input{
   border: none !important; /* Remove border */
   outline: none !important;
@@ -186,6 +260,11 @@
 .cardColor{
   background-color:antiquewhite;
 }
+.cardPerform{
+  border: 1px solid rgb(252, 166, 7);
+  /* border-color:orange; */
+}
+ 
  .cardPerform:hover{
   box-shadow: 3px 2px 10px grey;
   cursor: pointer;
@@ -200,9 +279,7 @@
  /* //prfragnt.js */
  
 
-
-
-
+ 
 
 
 
@@ -365,4 +442,78 @@ transform: scale(1.01);
   margin-top: 10px;
   text-decoration: none;
 } */
+
+
+
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.shrikhand-regular {
+  font-family: "Shrikhand", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.search-container {
+  width: 60%;
+  margin-left: 250px;
+  height: 80px;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 140px;
+  border-radius: 40px;
+}
+
+
+.carousel-container {
+  position: relative;
+  border-radius: 40px;
+}
+
+.custom-carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.custom-carousel-indicators .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: gray;
+  cursor: pointer;
+}
+
+.custom-carousel-indicators .dot.active {
+  background-color: red;
+}
+/* Adjust other styles as needed */
+
+
+.App {
+  padding: 20px;
+  background-color: #f8f9fa; /* Light grey background color */
+}
+
+.form-container {
+  background-color: #ffffff; /* White background for form container */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 

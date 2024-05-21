@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Container, Row,Col } from 'react-bootstrap'; 
+import { Link } from 'react-router-dom';
  const BasicCard=()=>{
   return (
     <>
@@ -15,9 +16,10 @@ import { Container, Row,Col } from 'react-bootstrap';
         <Row style={{marginTop:'30px'}}>
         <p style={{fontSize:'35px'}}> Because You Searched Banglore</p>
             <Col >
-    <Card className='cardPerform' style={{backgroundColor:'antiquewhite'}} sx={{ minWidth: 220,minHeight:160} } >
+
+    <Card className='cardPerform' style={{backgroundColor:'antiquewhite' }} sx={{ minWidth: 220,minHeight:160} } >
       <CardContent>
-        <Typography variant="h3" component="div">
+        <Typography variant="h3" component="div" className='multi-colored-letter"'>
           59K+ 
         </Typography>
        
@@ -27,7 +29,7 @@ import { Container, Row,Col } from 'react-bootstrap';
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Continue last search <ArrowForwardIcon/></Button>
+        <Button size="small" style={{color:'red'}}>Continue last search <ArrowForwardIcon/></Button>
       </CardActions>
     </Card>
     </Col>
@@ -42,7 +44,7 @@ import { Container, Row,Col } from 'react-bootstrap';
       </CardContent>
       
       <CardActions>
-        <Button size="small"> See All <ArrowForwardIcon/></Button>
+        <Button size="small" style={{color:'red'}}> See All <ArrowForwardIcon/></Button>
       </CardActions>
     </Card>
     </Col>
@@ -61,7 +63,7 @@ import { Container, Row,Col } from 'react-bootstrap';
       <br />
        
       <CardActions>
-        <Button size="small">See All<ArrowForwardIcon/></Button>
+        <Button size="small" style={{color:'red'}}>See All<ArrowForwardIcon/></Button>
       </CardActions>
     </Card>
     </Col>
@@ -79,7 +81,7 @@ import { Container, Row,Col } from 'react-bootstrap';
       </CardContent>
       <br/>
       <CardActions>
-        <Button size="small">See All<ArrowForwardIcon/></Button>
+        <Button size="small" style={{color:'red'}}>See All<ArrowForwardIcon/></Button>
       </CardActions>
     </Card>
     </Col>

@@ -49,7 +49,7 @@ function PropertyServices() {
   const { index, handleNext, handlePrev } = Arrrowaction(cards.length, 4);
 
   return (
-    <Container>
+    <Container> 
       <Typography variant='p' style={{marginTop:'50px', fontSize:'35px'}} className='nav_boldB'>
         Property And Services
       </Typography>
