@@ -262,6 +262,7 @@
 }
 .cardPerform{
   border: 1px solid rgb(252, 166, 7);
+  
   /* border-color:orange; */
 }
  
@@ -328,8 +329,7 @@
   margin-left: 50px;
   
 }
-
-
+ 
 
 
 /* Properrtyservices */

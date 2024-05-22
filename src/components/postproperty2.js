@@ -764,14 +764,7 @@ const AddProduct = () => {
                 <Form.Check inline type="radio" label="PG/Hostel" name="listingType" />
               </div>
             </Form.Group>
-{/* 
-            <Form.Group>
-              <Form.Label>Property Type</Form.Label>
-              <Form.Control as="select">
-                <option>Select Property Type</option>
-                {/* Add more options as needed */}
-              {/* </Form.Control>
-            </Form.Group> */} 
+ 
 
             <Form.Group>
               <Form.Label>City</Form.Label>

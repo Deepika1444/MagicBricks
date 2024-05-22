@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react';
 import { Container, Row, Col, Nav, Tab, Card, Modal } from 'react-bootstrap';
-import { Typography, CardContent, CardMedia, CardActionArea, CardActions, Button } from '@mui/material';
+import { Typography, CardContent, CardMedia, CardActionArea, Box, Button } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { Link } from 'react-router-dom';
 import CheckIcon from '@mui/icons-material/Check';
@@ -33,14 +33,23 @@ const properties = [
     info:"2 BHK, Multistorey Apartment is available for Sale in Kattupakkam, Chennai for 1.1 Crore(s)"
   },
   {
+    title: "3 BHK Ready to Occupy Flat for sale in Gopalan... ",
+    price: "2.26cr",
+    size: "1149 sqft",
+    location: "Hoodi Bangalore",
+    image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/15/Photo_h180_w240/71874271_5_PropertyImage377-5241042579304_180_240.jpg",
+    readytomove: "Under Construction",
+    info:'This ready to move-in 3 BHK flat is available for sale at the premium Hoodi locality in Bangalore. Situated in Gopalan Olympia, it has a prime location'
+    
+  },
+  {
     title: "3 BHK Flat",
     price: "2.26cr",
     size: "1149 sqft",
-    location: "Whitefield Bangalore",
-    image: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/15/Photo_h180_w240/71874271_5_PropertyImage377-5241042579304_180_240.jpg",
-    readytomove: "Under Construction"
-  },
-  // Add more properties as needed
+    location: "kengeri Bangalore",
+    image: "https://img.staticmb.com/mbimages/project/Photo_h310_w462/2024/02/01/Project-Photo-10-Phoenix-Kessaku-Bangalore-5104677_1067_1600_310_462.jpg",
+    readytomove: "Ready To Move"
+  }
 ];
 
 const newProjects = [
@@ -50,7 +59,7 @@ const newProjects = [
     price: "2.5cr",
     size: "2000 sqft",
     location: "MG Road, Bangalore",
-    image: "https://img.staticmb.com/mbphoto/property/cropped_images/2023/Jun/18/Photo_h180_w240/67579841_1_PropertyImage680-0493997235518_180_240.jpg",
+    image: "https://img.staticmb.com/mbimages/project/Photo_h310_w462/2024/05/13/Project-Photo-84-Abhigna-Misty-Woods-Bangalore-5311065_491_800_310_462.jpg",
     readytomove: "Under Construction"
   },
   // Add more projects as needed
@@ -115,16 +124,19 @@ const PropertyCard = ({ property }) => {
             <Button variant="none" color="info" style={{ width: '20px' }} onClick={handleShow}>
               <IosShareIcon />
             </Button>
-
             <Typography gutterBottom variant="h6">{property.title}</Typography>
+
+              <Card style={{border:'1px solid lightgrey',boxShadow:'0px 2px  10px 0px',padding:'10px',marginBottom:'20px'}}>
             <Typography variant="body1" color="text.secondary">
               <CurrencyRupeeIcon />
               <strong>{`${property.price} | ${property.size}`}</strong>
               <div>{property.location}</div>
               <div>{property.readytomove}</div>
-              <div style={{marginTop:'18px',fontSize:'13px'}}>{property.info}</div>
 
             </Typography>
+            </Card>
+            <div style={{ fontSize:'16px'}}>{property.info}</div>
+
           </CardContent>
         </CardActionArea>
         {/* <CardActions style={{ justifyContent: 'space-between' }}>
@@ -154,102 +166,113 @@ const PropertyCard = ({ property }) => {
     </>
   );
 };
-
+ 
 const SidebarBanner = () => (
-  <div style={{ padding: '10px', backgroundColor: '#cce5ff', borderRadius: '5px', marginTop: '80px' ,marginLeft:'25%'}}>
-    <Typography variant="h6" style={{ color: '#004085' }}>
-      Bengaluru Home Interiors Expo is back!
+  <Box 
+    sx={{
+      padding: '20px',
+      backgroundColor: '#ffff', 
+      borderRadius: '5px',
+      marginTop: '80px',
+      marginLeft: '25%',
+      maxWidth: '250px',
+      border:'2px solid lightgrey',
+      width:'250px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+    }}
+  >
+    <Box sx={{backgroundColor:'#c2f3f8',height:'200px',padding:'10px'}}>
+    <Typography variant="h6" sx={{ color: '#d82b23' }}>
+      Bengaluru
     </Typography>
-    <Typography variant="body2" style={{ color: '#004085' }}>
+    <Typography variant="h6" sx={{ color: '#004085' }}>
+      Home Interiors Expo is back!
+    </Typography>
+    <Typography variant="body2" sx={{ color: '#004085' }}>
       11th & 12th May '24 <br />
       Bellandur, Whitefield & Hebbal
     </Typography>
-    <Button variant="contained" style={{ backgroundColor: '#004085', color: 'white', marginTop: '10px' }}>
-      Get Your Free Pass
-    </Button>
-  </div>
+    </Box>
+    <Box
+      sx={{
+        padding: '10px',
+        backgroundColor: '#ffff', 
+        borderRadius: '5px',
+        marginTop: '10px',
+        textAlign: 'center'
+      }}
+    >
+      <Typography variant="h6" sx={{ color: '#004085' ,backgroundColor:'#c2f3f8'}}>
+        Save upto 40%
+      </Typography>
+      <Typography variant="body2" sx={{ color: '#004085', marginBottom: '10px' }}>
+        Meet India's top 10 interior brands under one roof
+      </Typography>
+      <Button variant="contained" sx={{ backgroundColor: '#ffc107', color: 'black' }}>
+        Get your Free Pass
+      </Button>
+    </Box>
+    <Box sx={{ marginTop: '10px', backgroundColor:'white'}}>
+      <Typography variant="h6" sx={{ color: '#004085' }}>
+        Why magicinteriors
+      </Typography>
+      <Typography variant="body2" sx={{ color: '#004085' }}>
+        <ul style={{ padding: '0 16px' }}>
+          <li>Exclusive Discounts</li>
+          <li>Lucky Draw</li>
+          <li>Attractive on-the-spot offers</li>
+        </ul>
+      </Typography>
+    </Box>
+  </Box>
 );
-
 const Buyproducts = () => {
   const [key, setKey] = useState('properties');
+  const cardStyle = {
+    border: '2px solid lightblue',
+    padding: '20px',
+    borderRadius: '10px',
+    marginBottom: '20px',
+    width:'900px',
+    backgroundColor: '#fff'
+  };
+  
+  const headerStyle = {
+    display: 'flex',
+    alignItems: 'center',
+   
+  };
+  
+  const imageStyle = {
+    width: '100px',
+    height: '100px',
+    marginRight: '20px'
+  };
+  
+  const headerText = {
+    flex: '1'
+  };
+  
+  const statsStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    backgroundColor:'lightblue',
+    marginTop:'0px'
+    // width:'800px'
+  };
+  
+  const buttonStyle = {
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    backgroundColor: 'red',
+    color: '#fff',
+    cursor: 'pointer',
+    marginRight: '10px',
+  };
 
   return (
-    // <Container className="mt-5">
-    //   <Row>
-    //     <Col md={9}>
-    //       <Tab.Container activeKey={key} onSelect={(k) => setKey(k)}>
-    //         <Nav variant="tabs">
-    //           <Nav.Item>
-    //             <Nav.Link eventKey="properties" style={{ color: 'black',width:'100px' }}>Properties (21,777)</Nav.Link>
-    //                 <h5 style={{fontFamily:'Montserrat ,Arial,sans-serief',fontStyle:'normal',  marginBottom:'15px',fontSize:'30px'}}>21,777 results | Ready to Move Flats in Banglore</h5>
-    //                 <div style={{ position: 'relative', width: '900px', backgroundColor: 'white' ,border:'1px solid lightgrey',borderRadius:'10px'}}>
-    //   <div style={{ 
-    //     content: '""', 
-    //     width: '100%', 
-    //     height: '8px', 
-    //     backgroundColor: 'lightblue', 
-    //     position: 'absolute', 
-    //     top: '0', 
-    //     left: '0' 
-    //   }}></div>
-    //   <div style={{ paddingTop: '10px',fontSize:'20px' }}>
-    //     <LocationOnIcon />
-    //     Add Localities for more relevant results <ArrowForwardIcon style={{color:'red'}}/>
-    //   </div>
-    // </div>
-    //           </Nav.Item>
-    //           <Nav.Item>
-    //             <Nav.Link eventKey="newProjects" style={{ color: 'black' }}>New Projects</Nav.Link>
-    //           </Nav.Item>
-    //           <Nav.Item>
-    //             <Nav.Link eventKey="topAgents" style={{ color: 'black' }}>Top Agents</Nav.Link>
-    //           </Nav.Item>
-    //         </Nav>
-    //         <Tab.Content>
-    //           <Tab.Pane eventKey="properties">
-    //             <Row className='property-grid'>
-    //               {properties.map((property, index) => (
-    //                 <Col key={index} md={12}>
-    //                   <PropertyCard property={property} />
-    //                 </Col>
-    //               ))}
-    //             </Row>
-    //           </Tab.Pane>
-    //           <Tab.Pane eventKey="newProjects">
-    //             <Row className='property-grid'>
-    //               {newProjects.map((project, index) => (
-    //                 <Col key={index} md={12}>
-    //                   <PropertyCard property={project} />
-    //                 </Col>
-    //               ))}
-    //             </Row>
-    //           </Tab.Pane>
-    //           <Tab.Pane eventKey="topAgents">
-    //             <Row className='property-grid'>
-    //               {topAgents.map((agent, index) => (
-    //                 <Col key={index} md={4}>
-    //                   <Card>
-    //                     <CardMedia component="img" height="140" image={agent.image} alt={`${agent.name} image`} />
-    //                     <CardContent>
-    //                       <Typography gutterBottom variant="h6">{agent.name}</Typography>
-    //                       <Typography variant="body1" color="text.secondary">
-    //                         <strong>{agent.agency}</strong>
-    //                         <div>{agent.contact}</div>
-    //                       </Typography>
-    //                     </CardContent>
-    //                   </Card>
-    //                 </Col>
-    //               ))}
-    //             </Row>
-    //           </Tab.Pane>
-    //         </Tab.Content>
-    //       </Tab.Container>
-    //     </Col>
-    //     <Col md={3}>
-    //       <SidebarBanner />
-    //     </Col>
-    //   </Row>
-    // </Container>
+   
     <Container className="mt-5">
     <Row>
       <Col md={9}>
@@ -268,8 +291,8 @@ const Buyproducts = () => {
           <h5 style={{ fontFamily: 'Montserrat, Arial, sans-serif', fontStyle: 'normal', marginBottom: '15px', fontSize: '30px' }}>
             21,777 results | Ready to Move Flats in Bangalore
           </h5>
-          <div style={{ position: 'relative', width: '900px', backgroundColor: 'white', border: '1px solid lightgrey', borderRadius: '10px' }}>
-            <div style={{ content: '""', width: '100%', height: '8px', backgroundColor: 'lightblue', position: 'absolute', top: '0', left: '0' }}></div>
+          <div style={{ position: 'relative', width: '900px', backgroundColor: 'white', border: '1px solid lightgrey', borderRadius: '10px',marginBottom:'15px' }}>
+            <div style={{boxShadow:'0px 10px 14px 8px lightblue', margin:'0 10px 1px 10px', borderRadius: '10px' }}></div>
             <div style={{ paddingTop: '10px', fontSize: '20px' }}>
               <LocationOnIcon />
               Add Localities for more relevant results <ArrowForwardIcon style={{ color: 'red' }} />
@@ -297,18 +320,65 @@ const Buyproducts = () => {
             <Tab.Pane eventKey="topAgents">
               <Row className='property-grid'>
                 {topAgents.map((agent, index) => (
-                  <Col key={index} md={4}>
-                    <Card>
-                      <CardMedia component="img" height="140" image={agent.image} alt={`${agent.name} image`} />
-                      <CardContent>
-                        <Typography gutterBottom variant="h6">{agent.name}</Typography>
-                        <Typography variant="body1" color="text.secondary">
-                          <strong>{agent.agency}</strong>
-                          <div>{agent.contact}</div>
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Col>
+                 <Col key={index} md={4}>
+                 <div style={cardStyle}>
+                   <div style={headerStyle}>
+                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <img
+            src="https://img.staticmb.com/mbimages/topagent/Profile-1-27283004_200_200.jpg"
+            alt="Agent"
+            style={imageStyle}
+          />
+          <img
+            src="https://img.staticmb.com/mbimages/user/Photo_h75_w75/27283004_logo_75_75.jpg"
+            alt="Agent Logo"
+            style={imageStyle}
+          />
+        </div>
+                     <div style={headerText}>
+                       <h2>Karthikeyan</h2>
+                       <p><b>MY Dwelling</b> Agrahara Badavane, Bangalore</p>
+                       <p>RERA ID: PRM/KA/RERA/1251/309/PR/170916/000324</p>
+                       <p>Operating since: 2001</p>
+                     </div>
+                   </div>
+             
+                   <div style={statsStyle}>
+                     <div>
+                       <h4>34</h4>
+                       <p>Properties for Sale</p>
+                     </div>
+                     <div>
+                       <h4>16</h4>
+                       <p>Properties for Rent</p>
+                     </div>
+                     <div>
+                       <h4>6</h4>
+                       <p>Deals Closed</p>
+                     </div>
+                     <div>
+                       <h4>3000</h4>
+                       <p>Team Members</p>
+                     </div>
+                   </div>
+             
+                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                     <div style={{ backgroundColor: 'lightblue', padding: '10px', width: '100%',height:'146px' }}>
+                       <h3>About Agent</h3>
+                       <p>
+                         Karthikeyan is a passionate real estate consultant obsessed with
+                         clients’ requirements and matching them...
+                       </p>
+                     </div>
+                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' ,backgroundColor:'lightblue'}}>
+                       <button style={buttonStyle}>Contact Agent</button>
+                       <button style={{ ...buttonStyle, backgroundColor: '#007bff', marginTop: '10px' }}>
+                         View Details
+                       </button>
+                     </div>
+                   </div>
+                 </div>
+               </Col>
                 ))}
               </Row>
             </Tab.Pane>

@@ -17,9 +17,15 @@ import { Link } from 'react-router-dom';
         <p style={{fontSize:'35px'}}> Because You Searched Banglore</p>
             <Col >
 
-    <Card className='cardPerform' style={{backgroundColor:'antiquewhite' }} sx={{ minWidth: 220,minHeight:160} } >
+       <Link to="buyprdcts" style={{textDecoration:'none'}}>
+         <Card className='cardPerform' style={{backgroundColor:'antiquewhite',borderRadius:'10px' }} sx={{ minWidth: 220,minHeight:160} } >
       <CardContent>
-        <Typography variant="h3" component="div" className='multi-colored-letter"'>
+        <Typography variant="h3" component="div" 
+        style={{
+        background: 'linear-gradient(45deg, orange, red)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>
           59K+ 
         </Typography>
        
@@ -32,9 +38,10 @@ import { Link } from 'react-router-dom';
         <Button size="small" style={{color:'red'}}>Continue last search <ArrowForwardIcon/></Button>
       </CardActions>
     </Card>
+    </Link>
     </Col>
     <Col>
-    <Card   className='cardPerform' style={{backgroundColor:'antiquewhite' }}sx={{ minWidth: 220,minHeight:170} }>
+    <Card   className='cardPerform' style={{backgroundColor:'antiquewhite',borderRadius:'10px' }}sx={{ minWidth: 220,minHeight:170} }>
       <CardContent > 
         <Typography variant="p" style={{fontSize:'20px'}}>
           Get persnolaized Property
@@ -49,7 +56,7 @@ import { Link } from 'react-router-dom';
     </Card>
     </Col>
     <Col>
-    <Card  className='cardPerform'  style={{backgroundColor:'antiquewhite'}}sx={{ minWidth: 220,minHeight:160} }>
+    <Card  className='cardPerform'  style={{backgroundColor:'antiquewhite',borderRadius:'10px'}}sx={{ minWidth: 220,minHeight:160} }>
       <CardContent>
         {/* <Typography variant="h3" component="div">
           59K+ 
@@ -68,14 +75,20 @@ import { Link } from 'react-router-dom';
     </Card>
     </Col>
     <Col>
-    <Card  className='cardPerform' style={{backgroundColor:'antiquewhite', }}  sx={{ minWidth: 220,minHeight:160} }>
+    <Card  className='cardPerform' style={{backgroundColor:'antiquewhite', borderRadius:'10px'}}  sx={{ minWidth: 220,minHeight:10} }>
       <CardContent>
-        {/* <Typography variant="h3" component="div">
-          59K+ 
-        </Typography> */}
+        <Typography variant="h4" component="span"
+          style={{
+            background: 'linear-gradient(45deg, orange, red)',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+             marginRight:'3px'
+          }}>
+          5 
+        </Typography>
        
-        <Typography variant="p" style={{fontSize:'22px'}}>
-         Top Excluisive Owner Properties
+        <Typography variant="p" style={{fontSize:'20px'}}>
+        Nearby Localities Matching Your Criteria
           <br />
         </Typography>
       </CardContent>

@@ -63,7 +63,7 @@ useEffect(() => {
         <>
             <Navbar expand="lg" className="bg-body-tertiary" fixed="top" style={{ zIndex: 1020,marginTop:'0px'}}>
                 <Container fluid className='navColor' style={{height:'50px'}}>
-                    <Navbar.Brand href="#home" className='text-white' style={{ marginLeft: '30px' }}>
+                    <Navbar.Brand href="/" className='text-white' style={{ marginLeft: '30px' }}>
                         <img src="https://cdn.staticmb.com/magicservicestatic/images/revamp/mb-logo-web-white.svg" width="160" alt="logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -362,7 +362,7 @@ onMouseLeave={() => handleMouseLeave('Buy')}
 <NavDropdown.Item href="#action/3.1"> Popular Choices</NavDropdown.Item> 
 <NavDropdown.Divider />
 
-<NavDropdown.Item href="https://www.magicbricks.com/ready-to-move-flats-in-bangalore-pppfs">Ready To Move</NavDropdown.Item>
+<NavDropdown.Item href="buyprdcts">Ready To Move</NavDropdown.Item>
 
 <NavDropdown.Item href="#action/3.2"> Owner Properties
 </NavDropdown.Item> 

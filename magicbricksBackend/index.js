@@ -77,7 +77,7 @@ app.post('/register', async (req, res) => {
     const token = jwt.sign(
       { id: newUser._id, email: newUser.userEmail },
       JWT_SECRET,
-      { expiresIn: '24h' }
+      { expiresIn: '4d' }
     );
 
     //
@@ -362,7 +362,7 @@ const sendEmail = (to, subject) => {
       html: `
       <h1>Reset Your Password</h1>
       <p>Your OTP is: ${otp}</p>
-      <a href="http://localhost3000/login">
+      <a href="http://localhost3000/Login">
         <button style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
           Reset Password
         </button>
