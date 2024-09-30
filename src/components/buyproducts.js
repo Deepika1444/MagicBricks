@@ -84,7 +84,15 @@ const PropertyCard = ({ property }) => {
 
   const handleWhatsAppShare = () => {
     // Add logic here to share content on WhatsApp
-    handleClose(); // Close the modal after sharing
+    // handleClose();
+ 
+      const phoneNumber = '917204779375'; // Replace with the recipient's phone number
+      const message = encodeURIComponent('Check out this amazing property listing!'); // Replace with your message
+      const url = `https://wa.me/${phoneNumber}?text=${message}`;
+      console.log('Opening URL:', url);
+      window.open(url, '_blank');
+    
+     // Close the modal after sharing
   };
 
   const handleInstagramShare = () => {

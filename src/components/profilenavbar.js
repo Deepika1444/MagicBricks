@@ -248,7 +248,7 @@ onMouseLeave={() => handleMouseLeave('Buy')}
 <NavDropdown.Item href="#action/3.1"> Popular Choices</NavDropdown.Item> 
 <NavDropdown.Divider />
 
-<NavDropdown.Item href="https://www.magicbricks.com/ready-to-move-flats-in-bangalore-pppfs">Ready To Move</NavDropdown.Item>
+<NavDropdown.Item href="buyprdcts">Ready To Move</NavDropdown.Item>
 
 <NavDropdown.Item href="#action/3.2"> Owner Properties
 </NavDropdown.Item> 
@@ -362,7 +362,7 @@ onMouseLeave={() => handleMouseLeave('Buy')}
 <NavDropdown.Item href="#action/3.1"> Popular Choices</NavDropdown.Item> 
 <NavDropdown.Divider />
 
-<NavDropdown.Item href="https://www.magicbricks.com/ready-to-move-flats-in-bangalore-pppfs">Ready To Move</NavDropdown.Item>
+<NavDropdown.Item href="buyprdcts">Ready To Move</NavDropdown.Item>
 
 <NavDropdown.Item href="#action/3.2"> Owner Properties
 </NavDropdown.Item> 
@@ -380,7 +380,7 @@ onMouseLeave={() => handleMouseLeave('Buy')}
 <NavDropdown.Item href="#action/3.1">  Property Types</NavDropdown.Item> 
 <NavDropdown.Divider />
 
-<Nav.Link href="#action/3.2"  style={{color:'black'}}> Ready To Move
+<Nav.Link href="buyprdcts"  style={{color:'black'}}> Ready To Move
 </Nav.Link> 
 <Nav.Link href="#action/3.4"   style={{color:'black'}}>
   House For Sale in Ban..

@@ -33,6 +33,7 @@ const handleMouseLeave = (dropdown) => {
 };
 const handleSignout=()=>{
    localStorage.removeItem("userName");
+   localStorage.removeItem("token");
    localStorage.removeItem("cartItems");
 
     

@@ -1,9 +1,4 @@
- 
-
-
-
-
-
+  
 //Use a Certificate from a Trusted CA: 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //only fpr development
 require('dotenv').config()
@@ -16,25 +11,25 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
+//  includes middleware for handling file uploads with Multer, sending emails with Nodemailer, 
+//  parsing JSON and URL-encoded bodies with bodyParser, enabling Cross-Origin Resource Sharing (CORS) with cors,
+//  and managing JSON Web Tokens (JWT) and password hashing with bcryptjs.
 
 
 const db=require('./configure/database')
 const User=require('./model/user');
 const MbsUsers = require('./model/user');
 const Cart=require('./model/carteditems')
+const authenticateJWT = require('./middleware/author')
 const app = express();
 const port = 3002;
 
-// Middleware
+// Middlewares
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
-
-
-
-
+ 
 
 
 
@@ -44,12 +39,7 @@ if (!JWT_SECRET) {
   console.error("JWT_SECRET is not defined.");
 
 }
-
-
-
-
-
-
+ 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
       cb(null, "./uploads/"); // Destination directory for storing uploaded images
@@ -65,28 +55,78 @@ const upload = multer({ storage: storage });
  
 
 app.post('/register', async (req, res) => {
-  const { userName, userEmail, userPassword, userNumber } = req.body;
+  const { userName, userEmail, userPassword, userNumber } = req.body; //This line uses destructuring to extract specific properties 
+  //(userName, userEmail, userPassword, userNumber) from the request body (req.body).
+  // These properties are typically sent in the body of a POST request when a form is submitted.
 
-  try {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(userPassword, salt);
+  try { //The try block is used to wrap code that might throw an error. If an error occurs within this block, it can be caught and handled in the catch block.
+    const salt = await bcrypt.genSalt(10);//Here, bcrypt.genSalt(10) generates a salt with a cost factor of 10 asynchronously using the bcrypt library. 
+    //The await keyword is used because genSalt returns a Promise,
+     //and we're awaiting its resolution before proceeding.
+    const hashedPassword = await bcrypt.hash(userPassword, salt);//This line hashes the user's password using the generated salt.
+    // It uses bcrypt.hash asynchronously, where userPassword is the password to hash, 
+    //and salt is the salt value generated in the previous step.
     const newUser = new User({ userName, userEmail, userPassword: hashedPassword,userNumber});
-    await newUser.save();
+    //Here, a new instance of a User model (assuming you have a User model defined somewhere in your codebase, possibly connected to a database)
+    // is created with the provided user data, including the hashed password.
+    await newUser.save(); //This line saves the new user object (with hashed password) to the database. The await keyword is used to wait for the save operation to complete before proceeding.
 
     
     const token = jwt.sign(
       { id: newUser._id, email: newUser.userEmail },
       JWT_SECRET,
       { expiresIn: '4d' }
-    );
+    );//This line generates a JSON Web Token (JWT) using the jwt.sign method.
+    // It includes the user's ID (newUser._id) and email (newUser.userEmail) in the token payload, signs it with a secret (JWT_SECRET), 
+    //and sets an expiration of 4 days ('4d').
 
-    //
+    
     res.status(201).json({ message: "User registered successfully", token: token });
+    //Finally, if everything succeeds without errors, the server responds with a status code of 201 (Created) and sends a JSON response containing
+    // a success message ("User registered successfully") and the generated JWT token.
   } catch (error) {
     console.log(error); 
     res.status(400).json({ error: error.message });
   }
+  //If an error occurs during the execution of the try block, it's caught here in the catch block.
+  // The error is logged to the console, and the server responds with a status code of 400 (Bad Request) along with a JSON object containing the error message extracted from the caught error (error.message).
+  // This allows for proper error handling in case of any issues during user registration.
 });
+
+// app.post("/Login", async (req, res) => { //Defines a POST route for the /Login endpoint.
+//   const { email, password } = req.body; //Extracts email and password from the request body.
+
+//   try {
+//     const user = await MbsUsers.findOne({ userEmail: email }); //Searches for a user in the MbsUsers collection with the provided email.
+//     if (!user) {
+//       return res.status(404).json("User not found");
+//     }
+
+    
+//     const isMatch = await bcrypt.compare(password, user.userPassword); //Compares the provided password with the stored hashed password.
+//     if (isMatch) {
+//       // Create a token
+//       const token = jwt.sign(
+//         { id: user._id, email: user.userEmail },  
+//         JWT_SECRET,
+//         { expiresIn: '5m' }  
+//       );
+    
+//       res.json({ message: "Login successful",token:token,
+//       userName: user.userName ,
+//       userEmail:user.userEmail,
+//       userNumber:user.userNumber,
+//       id:user._id});
+//     } else {
+//       res.status(401).json("Password is incorrect");
+//     }
+//   } catch (err) {
+//     console.error("Login error:", err);
+//     res.status(500).json("Internal Server Error");
+//   }
+// });
+
+
 
 app.post("/Login", async (req, res) => {
   const { email, password } = req.body;
@@ -97,21 +137,22 @@ app.post("/Login", async (req, res) => {
       return res.status(404).json("User not found");
     }
 
-    
     const isMatch = await bcrypt.compare(password, user.userPassword);
     if (isMatch) {
-      // Create a token
       const token = jwt.sign(
-        { id: user._id, email: user.userEmail },  
+        { id: user._id, email: user.userEmail },
         JWT_SECRET,
-        { expiresIn: '4d' }  
+        { expiresIn: '5m' }
       );
-    
-      res.json({ message: "Login successful",token:token,
-      userName: user.userName ,
-      userEmail:user.userEmail,
-      userNumber:user.userNumber,
-      id:user._id});
+
+      res.json({
+        message: "Login successful",
+        token: token,
+        userName: user.userName,
+        userEmail: user.userEmail,
+        userNumber: user.userNumber,
+        id: user._id
+      });
     } else {
       res.status(401).json("Password is incorrect");
     }
@@ -120,6 +161,13 @@ app.post("/Login", async (req, res) => {
     res.status(500).json("Internal Server Error");
   }
 });
+
+app.get('/some-protected-endpoint', authenticateJWT, (req, res) => {
+  res.json({ message: 'This is a protected endpoint', user: req.user });
+});
+
+
+
 app.post('/api/cart', async (req, res) => {
   const { Id, items } = req.body;
 
